@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import ResearchAreaCard from '../components/ResearchAreaCard.astro';
+import ResponsiveImage from '../components/ResponsiveImage.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Tag from '../components/Tag.astro';
+import { joinContent } from '../data/join';
+import { piBiography, piResearch, principalInvestigator } from '../data/people';
+import { researchAreas } from '../data/research';
+import { site } from '../data/site';
+import { withBase } from '../utils/paths';
+---
+
+<BaseLayout title="About" description={`Learn about ${site.officialName}, its mission, research approach, and opportunities to join the lab.`}>
+  <section class="page-hero page-hero--about">
+    <div class="container page-hero__grid">
+      <div>
+        <p class="eyebrow">About the lab</p>
+        <h1>Computational methods for capable, interpretable intelligence.</h1>
+      </div>
+      <p>{site.aboutIntroduction[0]}</p>
+    </div>
+  </section>
+
+  <section class="section about-overview" aria-labelledby="overview-title">
+    <div class="container about-overview__grid">
+      <div>
+        <p class="eyebrow">Laboratory overview</p>
+        <h2 id="overview-title">Connecting foundational research with real-world questions</h2>
+      </div>
+      <div class="prose prose--large">
+        {site.aboutIntroduction.slice(1).map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" aria-labelledby="mission-title">
+    <div class="container">
+      <div class="principles-grid">
+        <article class="principle-card">
+          <span class="principle-card__number">01</span>
+          <p class="eyebrow">Mission</p>
+          <h2 id="mission-title">Rigorous research with meaningful impact</h2>
+          <p>{site.mission}</p>
+        </article>
+        <article class="principle-card">
+          <span class="principle-card__number">02</span>
+          <p class="eyebrow">Vision</p>
+          <h2>Intelligence worthy of human trust</h2>
+          <p>{site.vision}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section about-themes" aria-labelledby="themes-title">
+    <div class="container">
+      <SectionHeading
+        id="themes-title"
+        eyebrow="Research themes"
+        title="Three Areas, One Connected Agenda"
+        intro="Our work moves between generative modelling, multimodal sensing, and responsible deployment."
+      />
+      <div class="research-stack">
+        {researchAreas.map((area) => <ResearchAreaCard area={area} expanded />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" aria-labelledby="approach-title">
+    <div class="container approach-grid">
+      <SectionHeading id="approach-title" eyebrow="How we work" title="Research Approach" />
+      <div class="prose">
+        {site.researchApproach.map((paragraph) => <p>{paragraph}</p>)}
+        <h3>Application areas</h3>
+        <p>{site.applicationAreas}</p>
+        <div class="tag-list tag-list--roomy">
+          {site.applicationTags.map((tag) => <Tag>{tag}</Tag>)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="pi-title">
+    <div class="container pi-feature">
+      <ResponsiveImage
+        src={principalInvestigator.avatar}
+        alt="Illustrated portrait of Dr. Shan Du"
+        aspect="portrait"
+        placeholderLabel="PI portrait unavailable"
+      />
+      <div class="pi-feature__content">
+        <p class="eyebrow">Principal investigator</p>
+        <h2 id="pi-title">Dr. Shan Du</h2>
+        <p class="pi-feature__role">Assistant Professor, Computer Science<br />The University of British Columbia, Okanagan Campus</p>
+        {piBiography.map((paragraph) => <p>{paragraph}</p>)}
+        <p>{piResearch}</p>
+        <div class="pi-feature__actions">
+          <Button href={`mailto:${site.email}`} variant="secondary">Email Dr. Du</Button>
+          <a class="text-link" href={withBase('/people/')}>Meet the lab</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section join-section" id="join" aria-labelledby="join-title">
+    <div class="container join-section__grid">
+      <div class="join-section__intro">
+        <p class="eyebrow">Work with us</p>
+        <h2 id="join-title">Join the Lab</h2>
+        <p>{joinContent.introduction}</p>
+        <Button href={`mailto:${site.email}`}>Contact Dr. Shan Du</Button>
+      </div>
+      <div class="join-details">
+        <details open>
+          <summary>PhD and MSc students</summary>
+          <div><p>{joinContent.graduate}</p></div>
+        </details>
+        <details>
+          <summary>Undergraduate researchers</summary>
+          <div><p>{joinContent.undergraduate}</p></div>
+        </details>
+        <details>
+          <summary>Visiting students and researchers</summary>
+          <div><p>{joinContent.visiting}</p></div>
+        </details>
+        <details>
+          <summary>Postdoctoral researchers</summary>
+          <div><p>{joinContent.postdoctoral}</p></div>
+        </details>
+        <details>
+          <summary>Academic and industry collaboration</summary>
+          <div><p>{joinContent.collaboration}</p></div>
+        </details>
+        <details>
+          <summary>Application materials</summary>
+          <div>
+            <ul>{joinContent.materials.map((item) => <li>{item}</li>)}</ul>
+            <p><strong>Suggested email subject</strong><br /><code>{joinContent.emailSubject}</code></p>
+          </div>
+        </details>
+        <div class="availability-note">
+          <strong>Availability</strong>
+          <p>{joinContent.availability}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

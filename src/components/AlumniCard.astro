@@ -1,0 +1,29 @@
+---
+import type { Alumnus } from '../data/types';
+import ResponsiveImage from './ResponsiveImage.astro';
+
+interface Props {
+  alumnus: Alumnus;
+}
+
+const { alumnus } = Astro.props;
+---
+
+<article class="person-card person-card--alumnus">
+  <ResponsiveImage
+    src={alumnus.avatar}
+    alt={`Illustrated portrait of ${alumnus.name}`}
+    aspect="square"
+    placeholderLabel="Alumni portrait unavailable"
+  />
+  <div class="person-card__body">
+    <h3>{alumnus.name}</h3>
+    <p class="person-card__role">{alumnus.formerRole}</p>
+    {(alumnus.currentPosition || alumnus.currentOrganization) && (
+      <p class="person-card__current">
+        {alumnus.currentPosition}{alumnus.currentPosition && alumnus.currentOrganization ? ' · ' : ''}{alumnus.currentOrganization}
+      </p>
+    )}
+    {alumnus.location && <p class="person-card__location">{alumnus.location}</p>}
+  </div>
+</article>

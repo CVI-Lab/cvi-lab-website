@@ -1,0 +1,56 @@
+---
+import { navigation } from '../data/navigation';
+import { site } from '../data/site';
+import { withBase } from '../utils/paths';
+
+const currentYear = new Date().getFullYear();
+const footerLinks = navigation.filter((item) => item.href !== '/' && item.label !== 'About');
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <a class="brand brand--footer" href={withBase('/')} aria-label={`${site.name} home`}>
+          <img
+            class="brand__logo brand__logo--footer"
+            src={withBase('/brand/cvi-lab-logo.svg')}
+            alt=""
+            width="260"
+            height="95"
+          />
+        </a>
+        <p>In the heart of the Okanagan Valley,<br />at a place of mind.</p>
+      </div>
+
+      <div class="site-footer__column">
+        <h2>Visit</h2>
+        <address>
+          {site.institution}<br />
+          {site.faculty}<br />
+          {site.department}<br /><br />
+          {site.address.map((line) => <>{line}<br /></>)}
+        </address>
+      </div>
+
+      <div class="site-footer__column">
+        <h2>Navigate</h2>
+        <nav aria-label="Footer navigation">
+          <ul>{footerLinks.map((item) => <li><a href={withBase(item.href)}>{item.label}</a></li>)}</ul>
+        </nav>
+      </div>
+
+      <div class="site-footer__column">
+        <h2>Connect</h2>
+        <a class="site-footer__email" href={`mailto:${site.email}`}>{site.email}</a>
+        <a href="https://www.ubc.ca/" target="_blank" rel="noreferrer">The University of British Columbia ↗</a>
+        <p class="site-footer__placeholder">GitHub organization link forthcoming.</p>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p>© {site.established}–{currentYear} {site.officialName}.</p>
+      <p>Built for clarity, access, and ongoing research.</p>
+    </div>
+  </div>
+</footer>

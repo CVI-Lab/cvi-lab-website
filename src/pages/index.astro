@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import HeroVisual from '../components/HeroVisual.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import ResearchAreaCard from '../components/ResearchAreaCard.astro';
+import ResponsiveImage from '../components/ResponsiveImage.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { projects } from '../data/projects';
+import { researchAreas } from '../data/research';
+import { site } from '../data/site';
+import { withBase } from '../utils/paths';
+---
+
+<BaseLayout>
+  <section class="hero section" aria-labelledby="hero-title">
+    <div class="container hero__grid">
+      <div class="hero__content">
+        <p class="eyebrow">{site.officialName}</p>
+        <h1 id="hero-title">{site.heroHeading}</h1>
+        <p class="hero__supporting">{site.positioning}</p>
+        <div class="hero__actions">
+          <Button href={withBase('/projects/')}>Explore Our Projects</Button>
+          <Button href={withBase('/publications/')} variant="secondary">View Publications</Button>
+        </div>
+        <dl class="hero__facts" aria-label="Lab facts">
+          <div><dt>Established</dt><dd>{site.established}</dd></div>
+          <div><dt>Based at</dt><dd>UBC Okanagan</dd></div>
+          <div><dt>Research themes</dt><dd>Three connected areas</dd></div>
+        </dl>
+      </div>
+      <HeroVisual />
+    </div>
+  </section>
+
+  <section class="section home-intro" aria-labelledby="intro-title">
+    <div class="container home-intro__grid">
+      <ResponsiveImage
+        src={withBase('/images/home/group-meeting-option-1.png')}
+        alt="CVI Lab researchers collaborating around a table during a group meeting"
+        aspect="wide"
+        placeholderLabel="CVI Lab group meeting image unavailable"
+      />
+      <div class="home-intro__content">
+        <p class="eyebrow">Who we are</p>
+        <h2 id="intro-title">Research at the Intersection of Vision and Intelligence</h2>
+        <p>{site.homepageIntroShort}</p>
+        <a class="text-link" href={withBase('/about/')}>
+          Learn more about the lab
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4.5 5.5 5.5L7 15.5M12 10H3.5" /></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" aria-labelledby="research-title">
+    <div class="container">
+      <SectionHeading
+        id="research-title"
+        eyebrow="Research themes"
+        title="Our Research"
+        intro="We investigate complementary areas of artificial intelligence that connect generative modelling, real-world perception, and responsible deployment."
+      />
+      <div class="research-grid">
+        {researchAreas.map((area) => <ResearchAreaCard area={area} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="projects-title">
+    <div class="container">
+      <div class="section-heading-row">
+        <SectionHeading
+          id="projects-title"
+          eyebrow="Selected work"
+          title="Featured Projects"
+          intro="Explore selected research projects from the CVI Lab."
+        />
+        <a class="text-link text-link--desktop" href={withBase('/projects/')}>
+          View all projects
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4.5 5.5 5.5L7 15.5M12 10H3.5" /></svg>
+        </a>
+      </div>
+      <div class="project-grid project-grid--featured">
+        {projects.filter((project) => project.featured).slice(0, 3).map((project, index) => (
+          <ProjectCard project={project} priority={index === 0} />
+        ))}
+      </div>
+      <a class="text-link text-link--mobile" href={withBase('/projects/')}>
+        View all projects
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4.5 5.5 5.5L7 15.5M12 10H3.5" /></svg>
+      </a>
+    </div>
+  </section>
+
+  <section class="section join-banner-section" aria-labelledby="join-title">
+    <div class="container">
+      <div class="join-banner">
+        <div class="join-banner__visual" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="join-banner__content">
+          <p class="eyebrow">Opportunities + collaboration</p>
+          <h2 id="join-title">Join the CVI Lab</h2>
+          <p>{site.joinShort}</p>
+        </div>
+        <Button href={withBase('/about/#join')}>Learn About Opportunities</Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

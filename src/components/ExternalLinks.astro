@@ -1,0 +1,22 @@
+---
+import type { LinkItem } from '../data/types';
+import Button from './Button.astro';
+
+interface Props {
+  links: Array<LinkItem | undefined>;
+  compact?: boolean;
+}
+
+const { links, compact = false } = Astro.props;
+const availableLinks = links.filter((link): link is LinkItem => Boolean(link?.href));
+---
+
+{availableLinks.length > 0 && (
+  <div class:list={['external-links', { 'external-links--compact': compact }]}>
+    {availableLinks.map((link) => (
+      <Button href={link.href} variant="secondary" external={link.external}>
+        {link.label}
+      </Button>
+    ))}
+  </div>
+)}

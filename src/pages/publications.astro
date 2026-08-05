@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PublicationEntry from '../components/PublicationEntry.astro';
+import { publications } from '../data/publications';
+
+const years = [...new Set(publications.map((publication) => publication.year))].sort((a, b) => b - a);
+---
+
+<BaseLayout title="Publications" description="Browse publications from the CVI Lab at UBC Okanagan, grouped by year.">
+  <section class="page-hero page-hero--compact">
+    <div class="container page-hero__grid">
+      <div>
+        <p class="eyebrow">Publications</p>
+        <h1>Research shared with the wider scientific community.</h1>
+      </div>
+      <p>Browse our publications in computer vision, computer graphics, multimodal perception, intelligent sensing, and trustworthy AI.</p>
+    </div>
+  </section>
+
+  <section class="section publications-page" aria-label="Publications by year">
+    <div class="container">
+      {years.map((year) => (
+        <section class="publication-year" aria-labelledby={`year-${year}`}>
+          <h2 id={`year-${year}`}>{year}</h2>
+          <div class="publication-list">
+            {publications.filter((publication) => publication.year === year).map((publication) => (
+              <PublicationEntry publication={publication} />
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,29 @@
+---
+import { withBase } from '../utils/paths';
+
+interface Props {
+  type: 'surface' | 'signal' | 'trust';
+}
+
+const { type } = Astro.props;
+const visuals = {
+  surface: {
+    src: '/images/research/generative-3d-vision.webp',
+    alt: 'A tactile 3D scanning scene with a half-mesh head bust, articulated human figure, and depth camera.',
+  },
+  signal: {
+    src: '/images/research/multimodal-perception.webp',
+    alt: 'Camera, microphone, satellite imagery, and environmental sensor streams combining inside one intelligent sensing hub.',
+  },
+  trust: {
+    src: '/images/research/trustworthy-ai.webp',
+    alt: 'A transparent AI model protected by a shield and examined with a magnifying glass beside a balance scale.',
+  },
+} as const;
+
+const visual = visuals[type];
+---
+
+<div class:list={['research-visual', `research-visual--${type}`]}>
+  <img src={withBase(visual.src)} alt={visual.alt} width="900" height="900" loading="lazy" decoding="async" />
+</div>

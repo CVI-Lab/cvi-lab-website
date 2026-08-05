@@ -1,0 +1,48 @@
+---
+interface Props {
+  bibtex: string;
+  open?: boolean;
+}
+
+const { bibtex, open = false } = Astro.props;
+---
+
+<details class="bibtex" open={open}>
+  <summary>BibTeX citation</summary>
+  <div class="bibtex__panel">
+    <button class="bibtex__copy" type="button" aria-label="Copy BibTeX citation">
+      <svg viewBox="0 0 20 20" aria-hidden="true">
+        <rect x="6" y="6" width="10" height="10" rx="2" />
+        <path d="M13 6V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h2" />
+      </svg>
+      <span>Copy</span>
+    </button>
+    <pre><code>{bibtex}</code></pre>
+    <p class="bibtex__status" aria-live="polite"></p>
+  </div>
+</details>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.bibtex').forEach((block) => {
+    if (block.dataset.copyBound) return;
+    block.dataset.copyBound = 'true';
+    const button = block.querySelector<HTMLButtonElement>('.bibtex__copy');
+    const code = block.querySelector<HTMLElement>('code');
+    const label = button?.querySelector('span');
+    const status = block.querySelector<HTMLElement>('.bibtex__status');
+    button?.addEventListener('click', async () => {
+      if (!code || !label || !status) return;
+      try {
+        await navigator.clipboard.writeText(code.textContent ?? '');
+        label.textContent = 'Copied';
+        status.textContent = 'Citation copied to clipboard.';
+        window.setTimeout(() => {
+          label.textContent = 'Copy';
+          status.textContent = '';
+        }, 1800);
+      } catch {
+        status.textContent = 'Could not copy automatically. Select the citation text to copy it.';
+      }
+    });
+  });
+</script>

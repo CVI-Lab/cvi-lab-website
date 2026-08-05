@@ -1,0 +1,109 @@
+---
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BibTeXBlock from '../../components/BibTeXBlock.astro';
+import Button from '../../components/Button.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import ResponsiveImage from '../../components/ResponsiveImage.astro';
+import Tag from '../../components/Tag.astro';
+import { projects } from '../../data/projects';
+import { publications } from '../../data/publications';
+import { withBase } from '../../utils/paths';
+
+export const getStaticPaths = (() => projects.map((project) => ({ params: { slug: project.slug }, props: { project } }))) satisfies GetStaticPaths;
+
+const { project } = Astro.props;
+const publication = publications.find((item) => item.id === project.publicationId);
+const relatedProjects = projects.filter((item) => item.slug !== project.slug).slice(0, 2);
+---
+
+<BaseLayout title={project.title} description={project.summary} image={project.overviewImage}>
+  <article class="project-detail">
+    <header class="project-detail__header">
+      <div class="container project-detail__header-grid">
+        <div>
+          <a class="breadcrumb" href={withBase('/projects/')}>Projects <span>/</span> {project.title}</a>
+          {project.placeholderLabel && <p class="placeholder-label">{project.placeholderLabel}</p>}
+          <h1>{project.title}</h1>
+          <p class="project-detail__subtitle">{project.subtitle}</p>
+          <p class="project-detail__authors">{project.authors.join(', ')}</p>
+          <p class="project-detail__venue">{project.venueLong}, {project.year}</p>
+          <div class="tag-list">{project.tags.map((tag) => <Tag>{tag}</Tag>)}</div>
+        </div>
+        <div class="project-detail__links">
+          {project.projectUrl && <Button href={project.projectUrl} external>Project Website</Button>}
+          {project.paperUrl && <Button href={project.paperUrl} variant="secondary" external>Paper</Button>}
+          {project.codeUrl && <Button href={project.codeUrl} variant="secondary" external>Code</Button>}
+        </div>
+      </div>
+    </header>
+
+    <div class="container project-detail__visual">
+      <ResponsiveImage src={project.overviewImage} alt={project.imageAlt} eager placeholderLabel="Project visual unavailable" />
+      <p>{project.visualCaption}</p>
+    </div>
+
+    <div class="container project-detail__body">
+      <aside class="project-detail__toc" aria-label="On this page">
+        <p>On this page</p>
+        <a href="#overview">Overview</a>
+        <a href="#contributions">Key Contributions</a>
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#citation">Citation</a>
+        {project.acknowledgements && <a href="#acknowledgements">Acknowledgements</a>}
+      </aside>
+
+      <div class="project-detail__content prose prose--project">
+        <section id="overview">
+          <p class="eyebrow">01 — Overview</p>
+          <h2>Overview</h2>
+          {project.overview.map((paragraph) => <p>{paragraph}</p>)}
+        </section>
+        <section id="contributions">
+          <p class="eyebrow">02 — Contributions</p>
+          <h2>Key Contributions</h2>
+          <ul class="contribution-list">
+            {project.contributions.map((contribution, index) => (
+              <li><span>0{index + 1}</span><p>{contribution}</p></li>
+            ))}
+          </ul>
+        </section>
+        <section id="method">
+          <p class="eyebrow">03 — Method</p>
+          <h2>Method</h2>
+          <p>{project.method}</p>
+        </section>
+        <section id="results">
+          <p class="eyebrow">04 — Evaluation</p>
+          <h2>Results</h2>
+          <p>{project.results}</p>
+        </section>
+        <section id="citation">
+          <p class="eyebrow">05 — Reference</p>
+          <h2>Citation</h2>
+          {publication ? <BibTeXBlock bibtex={publication.bibtex} open /> : <p>Citation details will be added when available.</p>}
+        </section>
+        {project.acknowledgements && (
+          <section id="acknowledgements">
+            <p class="eyebrow">06 — Thanks</p>
+            <h2>Acknowledgements</h2>
+            <p>{project.acknowledgements}</p>
+          </section>
+        )}
+      </div>
+    </div>
+
+    {relatedProjects.length > 0 && (
+      <section class="section section--alt related-projects" aria-labelledby="related-title">
+        <div class="container">
+          <p class="eyebrow">Continue exploring</p>
+          <h2 id="related-title">Related Projects</h2>
+          <div class="project-grid project-grid--related">
+            {relatedProjects.map((item) => <ProjectCard project={item} />)}
+          </div>
+        </div>
+      </section>
+    )}
+  </article>
+</BaseLayout>

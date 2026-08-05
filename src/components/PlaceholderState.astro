@@ -1,0 +1,16 @@
+---
+interface Props {
+  title?: string;
+  message: string;
+}
+
+const { title = 'More to come', message } = Astro.props;
+---
+
+<div class="placeholder-state" role="status">
+  <span aria-hidden="true">+</span>
+  <div>
+    <h3>{title}</h3>
+    <p>{message}</p>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { projects } from '../../data/projects';
+---
+
+<BaseLayout title="Projects" description="Explore research projects from the CVI Lab in generative 3D vision, multimodal perception, and trustworthy AI.">
+  <section class="page-hero page-hero--compact">
+    <div class="container page-hero__grid">
+      <div>
+        <p class="eyebrow">Projects</p>
+        <h1>Ideas made tangible through models, systems, and experiments.</h1>
+      </div>
+      <p>Explore selected CVI Lab research connecting computational innovation with challenging visual, spatial, and multimodal problems.</p>
+    </div>
+  </section>
+
+  <section class="section projects-page" aria-label="Research projects">
+    <div class="container">
+      <div class="project-grid project-grid--page">
+        {projects.map((project, index) => <ProjectCard project={project} priority={index < 2} />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,32 @@
+---
+import type { ResearchArea } from '../data/types';
+import ResearchVisual from './ResearchVisual.astro';
+import Tag from './Tag.astro';
+import { withBase } from '../utils/paths';
+
+interface Props {
+  area: ResearchArea;
+  expanded?: boolean;
+}
+
+const { area, expanded = false } = Astro.props;
+---
+
+<article id={expanded ? area.id : undefined} class:list={['research-card', `research-card--${area.accent}`, { 'research-card--expanded': expanded }]}>
+  <div class="research-card__top">
+    <p class="research-card__index">0{['mist', 'sage', 'sand'].indexOf(area.accent) + 1}</p>
+    <ResearchVisual type={area.visual} />
+  </div>
+  <h3>{area.name}</h3>
+  <p>{expanded ? area.extendedDescription : area.shortDescription}</p>
+  {expanded ? (
+    <div class="research-card__topics" aria-label={`Topics in ${area.name}`}>
+      {area.topics.map((topic) => <Tag tone={area.accent}>{topic}</Tag>)}
+    </div>
+  ) : (
+    <a class="text-link" href={withBase(`/about/#${area.id}`)}>
+      Explore theme
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4.5 5.5 5.5L7 15.5M12 10H3.5" /></svg>
+    </a>
+  )}
+</article>

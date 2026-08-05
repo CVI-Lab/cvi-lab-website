@@ -1,0 +1,49 @@
+---
+import { withBase } from '../utils/paths';
+
+interface Props {
+  src: string;
+  alt: string;
+  aspect?: 'wide' | 'portrait' | 'square' | 'social';
+  eager?: boolean;
+  class?: string;
+  placeholderLabel?: string;
+}
+
+const {
+  src,
+  alt,
+  aspect = 'wide',
+  eager = false,
+  class: className,
+  placeholderLabel = 'Image placeholder',
+} = Astro.props;
+const resolvedSrc = withBase(src);
+---
+
+<figure class:list={['responsive-image', `responsive-image--${aspect}`, className]}>
+  <div class="responsive-image__fallback" aria-hidden="true">
+    <svg viewBox="0 0 64 64">
+      <path d="M10 45 24 29l10 10 7-8 13 14" />
+      <circle cx="44" cy="20" r="5" />
+    </svg>
+    <span>{placeholderLabel}</span>
+  </div>
+  <img
+    src={resolvedSrc}
+    alt={alt}
+    loading={eager ? 'eager' : 'lazy'}
+    decoding="async"
+    fetchpriority={eager ? 'high' : 'auto'}
+  />
+</figure>
+
+<script>
+  document.querySelectorAll<HTMLImageElement>('.responsive-image img').forEach((image) => {
+    if (image.dataset.fallbackBound) return;
+    image.dataset.fallbackBound = 'true';
+    const hideBrokenImage = () => image.classList.add('is-unavailable');
+    image.addEventListener('error', hideBrokenImage);
+    if (image.complete && image.naturalWidth === 0) hideBrokenImage();
+  });
+</script>

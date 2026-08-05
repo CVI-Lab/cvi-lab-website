@@ -1,0 +1,54 @@
+---
+import { navigation } from '../data/navigation';
+import { site } from '../data/site';
+import { withBase } from '../utils/paths';
+
+const pathname = Astro.url.pathname;
+const homeHref = withBase('/');
+const isActive = (href: string) => {
+  const resolvedHref = withBase(href);
+  return href === '/'
+    ? pathname === resolvedHref || pathname === resolvedHref.replace(/\/$/, '')
+    : pathname.startsWith(resolvedHref);
+};
+---
+
+<header class="site-header" data-site-header>
+  <div class="container site-header__inner">
+    <a class="brand" href={homeHref} aria-label={`${site.name} home`}>
+      <img
+        class="brand__logo"
+        src={withBase('/brand/cvi-lab-logo.svg')}
+        alt=""
+        width="210"
+        height="77"
+      />
+    </a>
+
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <ul>
+        {navigation.map((item) => (
+          <li><a href={withBase(item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
+      <span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="mobile-nav" id="mobile-menu" aria-label="Mobile navigation" hidden>
+    <div class="container">
+      <ul>
+        {navigation.map((item, index) => (
+          <li style={`--menu-index: ${index}`}>
+            <a href={withBase(item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
+          </li>
+        ))}
+      </ul>
+      <p>{site.officialName}<br />{site.campus}</p>
+    </div>
+  </nav>
+</header>
+<script is:inline type="module" src={withBase('/scripts/header.js')}></script>

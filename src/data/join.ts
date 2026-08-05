@@ -1,0 +1,26 @@
+export const joinContent = {
+  introduction:
+    'The CVI Lab welcomes inquiries from motivated students and researchers interested in computer vision, computer graphics, generative modelling, multimodal learning, intelligent sensing, and trustworthy AI. Opportunities may be available for PhD students, MSc students, undergraduate researchers, visiting students, postdoctoral researchers, and research collaborators.',
+  graduate:
+    'Prospective graduate students should have a strong interest in one or more of the lab’s research areas and a suitable background in computer science, electrical or computer engineering, mathematics, data science, or a related discipline. Experience with machine learning, deep learning, computer vision, computer graphics, image or signal processing, or scientific programming is valuable. Interested applicants may contact Dr. Shan Du by email. Please include a concise description of your research interests, explain how they relate to the lab’s current work, and attach relevant application materials.',
+  materials: [
+    'Curriculum vitae',
+    'Academic transcripts',
+    'Brief research-interest statement',
+    'Relevant publications or research reports, if available',
+    'Portfolio, project page, or GitHub profile, if applicable',
+    'Expected start date',
+    'Funding or scholarship information, if applicable',
+  ],
+  emailSubject: 'Prospective [PhD/MSc] Student — [Applicant Name] — [Research Area]',
+  undergraduate:
+    'Undergraduate students interested in research experience, directed studies, capstone collaboration, or volunteer and funded research opportunities are welcome to inquire. Applicants should briefly describe their academic background, relevant coursework, technical skills, availability, and the research topics that interest them.',
+  visiting:
+    'The lab welcomes inquiries from visiting students and researchers whose work aligns with its research themes. Requests should include the proposed visit period, research goals, current affiliation, potential funding arrangements, and the expected form of collaboration.',
+  postdoctoral:
+    'Researchers interested in postdoctoral collaboration are encouraged to contact the lab with a curriculum vitae, publication list, research statement, proposed project direction, expected timeline, and information about available or prospective funding.',
+  collaboration:
+    'The CVI Lab is open to collaborations with academic groups, public-sector organizations, and industry partners on research involving visual computing, generative modelling, multimodal sensing, environmental intelligence, and responsible AI. Potential collaborators are invited to provide a brief description of the problem, available data or resources, expected outcomes, and anticipated collaboration model.',
+  availability:
+    'Opportunities depend on research alignment, supervision capacity, project requirements, and funding availability. An inquiry does not guarantee an available position or admission. Formal graduate admission decisions are made through the University of British Columbia’s established application process.',
+} as const;

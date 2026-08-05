@@ -1,0 +1,37 @@
+---
+import type { Person } from '../data/types';
+import ResponsiveImage from './ResponsiveImage.astro';
+import { withBase } from '../utils/paths';
+
+interface Props {
+  person: Person;
+}
+
+const { person } = Astro.props;
+const hasLinks = Boolean(person.email || person.links?.length);
+---
+
+<article class="person-card">
+  <ResponsiveImage
+    src={person.avatar}
+    alt={`Illustrated portrait of ${person.name}`}
+    aspect="square"
+    placeholderLabel="Portrait unavailable"
+  />
+  <div class="person-card__body">
+    <h3>{person.name}</h3>
+    <p class="person-card__role">{person.role}</p>
+    {person.researchInterests && <p>{person.researchInterests}</p>}
+    {person.biography && <p class="person-card__bio">{person.biography}</p>}
+    {hasLinks && (
+      <div class="person-card__links">
+        {person.email && <a href={`mailto:${person.email}`}>Email</a>}
+        {person.links?.map((link) => (
+          <a href={withBase(link.href)} target={link.external ? '_blank' : undefined} rel={link.external ? 'noreferrer' : undefined}>
+            {link.label}
+          </a>
+        ))}
+      </div>
+    )}
+  </div>
+</article>
