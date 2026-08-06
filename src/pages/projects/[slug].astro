@@ -56,12 +56,12 @@ const relatedProjects = projects.filter((item) => item.slug !== project.slug).sl
 
       <div class="project-detail__content prose prose--project">
         <section id="overview">
-          <p class="eyebrow">01 — Overview</p>
+          <p class="eyebrow">I. Overview</p>
           <h2>Overview</h2>
           {project.overview.map((paragraph) => <p>{paragraph}</p>)}
         </section>
         <section id="contributions">
-          <p class="eyebrow">02 — Contributions</p>
+          <p class="eyebrow">II. Contributions</p>
           <h2>Key Contributions</h2>
           <ul class="contribution-list">
             {project.contributions.map((contribution, index) => (
@@ -70,23 +70,23 @@ const relatedProjects = projects.filter((item) => item.slug !== project.slug).sl
           </ul>
         </section>
         <section id="method">
-          <p class="eyebrow">03 — Method</p>
+          <p class="eyebrow">III. Method</p>
           <h2>Method</h2>
           <p>{project.method}</p>
         </section>
         <section id="results">
-          <p class="eyebrow">04 — Evaluation</p>
+          <p class="eyebrow">IV. Evaluation</p>
           <h2>Results</h2>
           <p>{project.results}</p>
         </section>
         <section id="citation">
-          <p class="eyebrow">05 — Reference</p>
+          <p class="eyebrow">V. Reference</p>
           <h2>Citation</h2>
           {publication ? <BibTeXBlock bibtex={publication.bibtex} open /> : <p>Citation details will be added when available.</p>}
         </section>
         {project.acknowledgements && (
           <section id="acknowledgements">
-            <p class="eyebrow">06 — Thanks</p>
+            <p class="eyebrow">VI. Thanks</p>
             <h2>Acknowledgements</h2>
             <p>{project.acknowledgements}</p>
           </section>

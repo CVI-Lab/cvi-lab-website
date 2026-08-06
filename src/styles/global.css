@@ -1433,6 +1433,8 @@ a {
 
 .breadcrumb {
   display: inline-flex;
+  max-width: 100%;
+  flex-wrap: wrap;
   gap: 0.5rem;
   margin-bottom: 3rem;
   color: var(--color-text-muted);
@@ -1501,6 +1503,7 @@ a {
 
 .project-detail__body {
   display: grid;
+  min-width: 0;
   gap: clamp(3rem, 9vw, 8rem);
   padding-top: clamp(4.5rem, 9vw, 8rem);
   padding-bottom: clamp(5rem, 10vw, 9rem);
@@ -1520,7 +1523,7 @@ a {
   margin-bottom: 0.6rem;
   color: var(--color-text);
   font-family: var(--font-heading);
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1528,7 +1531,7 @@ a {
 
 .project-detail__toc a {
   color: var(--color-text-muted);
-  font-size: 0.76rem;
+  font-size: 0.86rem;
   text-decoration: none;
 }
 
@@ -1537,6 +1540,7 @@ a {
 }
 
 .prose--project {
+  min-width: 0;
   max-width: none;
 }
 
@@ -1611,6 +1615,8 @@ a {
 }
 
 .bibtex {
+  min-width: 0;
+  max-width: 100%;
   margin-top: 1.5rem;
   overflow: hidden;
   border: 1px solid var(--color-border);
@@ -2234,7 +2240,12 @@ a {
 
   .project-detail__header-grid,
   .project-detail__body {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .project-detail__header-grid > *,
+  .project-detail__body > * {
+    min-width: 0;
   }
 
   .project-detail__links {
