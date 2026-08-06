@@ -30,7 +30,7 @@ const initializeHeader = () => {
   updateHeader();
   window.addEventListener('scroll', updateHeader, { passive: true });
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 800) setMenuOpen(false);
+    if (window.innerWidth > 920) setMenuOpen(false);
   });
 };
 

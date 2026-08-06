@@ -17,12 +17,16 @@ const isActive = (href: string) => {
   <div class="container site-header__inner">
     <a class="brand" href={homeHref} aria-label={`${site.name} home`}>
       <img
-        class="brand__logo"
-        src={withBase('/brand/cvi-lab-logo.svg')}
+        class="brand__mark"
+        src={withBase('/brand/cvi-lab-mark.svg')}
         alt=""
-        width="210"
-        height="77"
+        width="66"
+        height="70"
       />
+      <span class="brand__wordmark" aria-hidden="true">
+        <span class="brand__name">CVI Lab</span>
+        <span class="brand__descriptor">Laboratory for Computational<br />Vision and Intelligence</span>
+      </span>
     </a>
 
     <nav class="desktop-nav" aria-label="Main navigation">

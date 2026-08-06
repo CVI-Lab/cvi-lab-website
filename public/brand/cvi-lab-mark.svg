@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="330" height="350" viewBox="175 280 330 350" fill="none">
+  <title>CVI Lab mark</title>
+  <desc>An open hexagonal frame containing a faceted cube and a small warm accent dot.</desc>
+  <defs>
+    <linearGradient id="frame" x1="204" y1="316" x2="472" y2="592" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#78969b"/>
+      <stop offset="0.47" stop-color="#b7ccc5"/>
+      <stop offset="1" stop-color="#93b2af"/>
+    </linearGradient>
+    <linearGradient id="top-left" x1="238" y1="388" x2="338" y2="451" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f8fbf4"/>
+      <stop offset="1" stop-color="#d5e7e1"/>
+    </linearGradient>
+    <linearGradient id="top-right" x1="337" y1="344" x2="424" y2="427" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f4f7ea"/>
+      <stop offset="1" stop-color="#e7ead9"/>
+    </linearGradient>
+    <linearGradient id="left-upper" x1="238" y1="401" x2="318" y2="482" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#dce8e5"/>
+      <stop offset="1" stop-color="#c0d0cd"/>
+    </linearGradient>
+    <linearGradient id="left-outer" x1="235" y1="414" x2="291" y2="504" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#668b94"/>
+      <stop offset="1" stop-color="#769ba1"/>
+    </linearGradient>
+    <linearGradient id="left-inner" x1="325" y1="453" x2="330" y2="551" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#d9e7e3"/>
+      <stop offset="1" stop-color="#adc7c4"/>
+    </linearGradient>
+    <linearGradient id="left-lower" x1="277" y1="486" x2="330" y2="556" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8cabad"/>
+      <stop offset="1" stop-color="#6f969e"/>
+    </linearGradient>
+    <linearGradient id="right-upper" x1="347" y1="451" x2="427" y2="401" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#e8eee4"/>
+      <stop offset="1" stop-color="#f3f3df"/>
+    </linearGradient>
+    <linearGradient id="right-outer" x1="417" y1="407" x2="429" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#bfd1cc"/>
+      <stop offset="1" stop-color="#8eacad"/>
+    </linearGradient>
+    <linearGradient id="right-inner" x1="343" y1="452" x2="368" y2="550" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#eef2e8"/>
+      <stop offset="1" stop-color="#cadbd6"/>
+    </linearGradient>
+    <linearGradient id="right-lower" x1="385" y1="485" x2="416" y2="528" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#a8bebb"/>
+      <stop offset="1" stop-color="#789da3"/>
+    </linearGradient>
+    <radialGradient id="accent" cx="0" cy="0" r="1" gradientTransform="translate(465 374) rotate(48) scale(23)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff8e9"/>
+      <stop offset="1" stop-color="#f6dfbf"/>
+    </radialGradient>
+  </defs>
+
+  <g stroke-linejoin="round">
+    <path d="M444 351 L345 300 Q337 296 328 301 L203 370 Q191 377 191 390 L191 519 Q191 534 204 542 L328 610 Q338 615 348 610 L454 551 L436 532 L344 583 Q338 587 331 583 L222 523 Q216 519 216 511 L216 391 Q216 384 223 380 L331 322 Q337 318 344 322 L444 377 Z" fill="url(#frame)" stroke="#67858a" stroke-width="1.4"/>
+    <path d="M487 407 L487 514 Q487 522 480 526 L463 536 Q460 538 460 534 L460 421 Z" fill="url(#frame)" stroke="#67858a" stroke-width="1.4"/>
+    <path d="M437 355 L343 306 Q337 303 331 306 L207 375 Q198 380 198 391 L198 516" stroke="#dbe7e2" stroke-width="1.2" opacity="0.48" stroke-linecap="round"/>
+
+    <g stroke="#91aaad" stroke-width="0.8">
+      <path d="M337 343 L234 397 L338 452 Z" fill="url(#top-left)"/>
+      <path d="M337 343 L440 397 L338 452 Z" fill="url(#top-right)"/>
+      <path d="M234 397 L338 452 L286 486 Z" fill="url(#left-upper)"/>
+      <path d="M234 397 L286 486 L235 510 Z" fill="url(#left-outer)"/>
+      <path d="M338 452 L338 563 L286 486 Z" fill="url(#left-inner)"/>
+      <path d="M286 486 L338 563 L235 510 Z" fill="url(#left-lower)"/>
+      <path d="M338 452 L440 397 L386 486 Z" fill="url(#right-upper)"/>
+      <path d="M440 397 L439 510 L386 486 Z" fill="url(#right-outer)"/>
+      <path d="M338 452 L386 486 L338 563 Z" fill="url(#right-inner)"/>
+      <path d="M386 486 L439 510 L338 563 Z" fill="url(#right-lower)"/>
+    </g>
+
+    <path d="M337 343 L234 397 L235 510 L338 563 L439 510 L440 397 Z" stroke="#6f8f95" stroke-width="1.15"/>
+    <circle cx="470" cy="380" r="15.5" fill="url(#accent)" stroke="#d9a25d" stroke-width="1.2"/>
+  </g>
+</svg>

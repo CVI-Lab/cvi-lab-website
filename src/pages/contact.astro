@@ -1,26 +1,22 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Button from '../components/Button.astro';
 import { site } from '../data/site';
 
 const inquiryTypes = [
   {
     number: '01',
     title: 'Prospective Students',
-    text: 'Prospective students should review the Join the Lab section before contacting Dr. Shan Du. Please include your intended program, research interests, relevant background, expected start date, and the requested supporting materials.',
-    subject: 'Prospective student inquiry',
+    text: 'Prospective students should review the Join page before contacting Dr. Shan Du. Please include your intended program, research interests, relevant background, expected start date, and the requested supporting materials.',
   },
   {
     number: '02',
     title: 'Research Collaboration',
     text: 'Academic and industry researchers are welcome to contact the lab regarding potential collaborations related to its research areas. Please include a short description of the proposed topic and the anticipated form of collaboration.',
-    subject: 'Research collaboration inquiry',
   },
   {
     number: '03',
     title: 'General Inquiries',
     text: 'For other inquiries related to the laboratory, its publications, projects, or research activities, please contact Dr. Shan Du by email.',
-    subject: 'CVI Lab general inquiry',
   },
 ];
 ---
@@ -51,7 +47,7 @@ const inquiryTypes = [
         </div>
         <div class="contact-card__block">
           <h3>Email</h3>
-          <a href={`mailto:${site.email}`}>{site.email}</a>
+          <p>Dr. Shan Du: <a href={`mailto:${site.email}`}>{site.email}</a></p>
         </div>
       </div>
 
@@ -62,7 +58,6 @@ const inquiryTypes = [
             <div>
               <h2>{inquiry.title}</h2>
               <p>{inquiry.text}</p>
-              <Button href={`mailto:${site.email}?subject=${encodeURIComponent(inquiry.subject)}`} variant="text">Send an Email</Button>
             </div>
           </article>
         ))}

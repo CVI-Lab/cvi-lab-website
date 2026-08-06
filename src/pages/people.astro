@@ -5,6 +5,7 @@ import PersonCard from '../components/PersonCard.astro';
 import ResponsiveImage from '../components/ResponsiveImage.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import { alumni, mscStudents, phdStudents, piBiography, principalInvestigator } from '../data/people';
+import { withBase } from '../utils/paths';
 ---
 
 <BaseLayout title="People" description="Meet the principal investigator, students, and alumni of the CVI Lab at UBC Okanagan.">
@@ -32,7 +33,7 @@ import { alumni, mscStudents, phdStudents, piBiography, principalInvestigator } 
           <h2 id="people-pi-title">{principalInvestigator.name}</h2>
           <p class="pi-card__role">Assistant Professor, Computer Science<br />The University of British Columbia, Okanagan Campus</p>
           {piBiography.map((paragraph) => <p>{paragraph}</p>)}
-          <a class="text-link" href={`mailto:${principalInvestigator.email}`}>Email Dr. Du</a>
+          <a class="text-link" href={withBase('/contact/')}>Contact Dr. Du</a>
         </div>
       </article>
     </div>

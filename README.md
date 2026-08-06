@@ -76,7 +76,7 @@ Public asset paths are stable, so approved files can replace placeholders withou
 - `public/brand/ubc-logo-placeholder.svg`
 - `public/images/projects/trisim-placeholder.jpg`
 - `public/images/projects/cppmn-placeholder.jpg`
-- `public/images/social-preview-placeholder.jpg`
+- `public/images/social-preview-cvi-lab.jpg`
 
 The UBC SVG is intentionally a labelled box and does not imitate the official university logo. Replace it only with an officially approved asset.
 

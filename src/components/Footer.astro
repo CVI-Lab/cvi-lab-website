@@ -13,12 +13,16 @@ const footerLinks = navigation.filter((item) => item.href !== '/' && item.label 
       <div class="site-footer__brand">
         <a class="brand brand--footer" href={withBase('/')} aria-label={`${site.name} home`}>
           <img
-            class="brand__logo brand__logo--footer"
-            src={withBase('/brand/cvi-lab-logo.svg')}
+            class="brand__mark"
+            src={withBase('/brand/cvi-lab-mark.svg')}
             alt=""
-            width="260"
-            height="95"
+            width="82"
+            height="87"
           />
+          <span class="brand__wordmark" aria-hidden="true">
+            <span class="brand__name">CVI Lab</span>
+            <span class="brand__descriptor">Laboratory for Computational<br />Vision and Intelligence</span>
+          </span>
         </a>
         <p>In the heart of the Okanagan Valley,<br />at a place of mind.</p>
       </div>

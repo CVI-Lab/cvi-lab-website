@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import { joinContent } from '../data/join';
+import { site } from '../data/site';
+import { withBase } from '../utils/paths';
+---
+
+<BaseLayout title="Join" description={`Explore student, researcher, and collaboration opportunities with ${site.officialName}.`}>
+  <section class="page-hero page-hero--compact">
+    <div class="container page-hero__grid">
+      <div>
+        <p class="eyebrow">Join the lab</p>
+        <h1>Build thoughtful, capable intelligence with us.</h1>
+      </div>
+      <p>{site.joinShort}</p>
+    </div>
+  </section>
+
+  <section class="section join-section" aria-labelledby="join-title">
+    <div class="container join-section__grid">
+      <div class="join-section__intro">
+        <p class="eyebrow">Work with us</p>
+        <h2 id="join-title">Join the Lab</h2>
+        <p>{joinContent.introduction}</p>
+        <Button href={withBase('/contact/')}>Contact Dr. Shan Du</Button>
+      </div>
+      <div class="join-details">
+        <details open>
+          <summary>PhD and MSc students</summary>
+          <div><p>{joinContent.graduate}</p></div>
+        </details>
+        <details>
+          <summary>Undergraduate researchers</summary>
+          <div><p>{joinContent.undergraduate}</p></div>
+        </details>
+        <details>
+          <summary>Visiting students and researchers</summary>
+          <div><p>{joinContent.visiting}</p></div>
+        </details>
+        <details>
+          <summary>Postdoctoral researchers</summary>
+          <div><p>{joinContent.postdoctoral}</p></div>
+        </details>
+        <details>
+          <summary>Academic and industry collaboration</summary>
+          <div><p>{joinContent.collaboration}</p></div>
+        </details>
+        <details>
+          <summary>Application materials</summary>
+          <div>
+            <ul>{joinContent.materials.map((item) => <li>{item}</li>)}</ul>
+            <p><strong>Suggested email subject</strong><br /><code>{joinContent.emailSubject}</code></p>
+          </div>
+        </details>
+        <div class="availability-note">
+          <strong>Availability</strong>
+          <p>{joinContent.availability}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
