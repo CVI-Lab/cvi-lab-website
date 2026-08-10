@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/Button.astro';
+import { pageCopy } from '../data/page-copy';
 import { withBase } from '../utils/paths';
 ---
 
@@ -10,9 +11,9 @@ import { withBase } from '../utils/paths';
       <div class="not-found__visual" aria-hidden="true">
         <span>4</span><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="43" /><path d="M26 78c26-5 41-40 67-37M33 93c25-5 34-35 60-40" /><circle cx="76" cy="34" r="5" /></svg><span>4</span>
       </div>
-      <p class="eyebrow">Page not found</p>
-      <h1>This path leads beyond the current map.</h1>
-      <p>The page may have moved, or the address may be incomplete. Return home or continue exploring our research.</p>
+      <p class="eyebrow" data-inline-edit="pages:notFound.eyebrow">{pageCopy.notFound.eyebrow}</p>
+      <h1 data-inline-edit="pages:notFound.title">{pageCopy.notFound.title}</h1>
+      <p data-inline-edit="pages:notFound.intro">{pageCopy.notFound.intro}</p>
       <div class="not-found__actions">
         <Button href={withBase('/')}>Return Home</Button>
         <Button href={withBase('/projects/')} variant="secondary">Explore Projects</Button>

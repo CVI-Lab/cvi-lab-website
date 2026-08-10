@@ -1,0 +1,26 @@
+title: "NEO-3DF: Novel Editing-Oriented 3D Face Creation and Reconstruction"
+authors:
+  - Peizhi Yan
+  - James Gregson
+  - Qiang Tang
+  - Rabab Ward
+  - Zhan Xu
+  - Shan Du
+venue: Proceedings of the Asian Conference on Computer Vision
+venueShort: ACCV
+year: 2022
+pages: 486–502
+project: neo-3df
+links:
+  project: https://yan.auroratns.com/docs/neo3df/index.html
+  paper: https://openaccess.thecvf.com/content/ACCV2022/papers/Yan_NEO-3DF_Novel_Editing-Oriented_3D_Face_Creation_and_Reconstruction_ACCV_2022_paper.pdf
+  code: https://github.com/ubc-3d-vision-lab/NEO-3DF
+order: 1
+bibtex: |
+  @InProceedings{Yan_2022_NEO3DF,
+    author    = {Yan, Peizhi and Gregson, James and Tang, Qiang and Ward, Rabab and Xu, Zhan and Du, Shan},
+    title     = {NEO-3DF: Novel Editing-Oriented 3D Face Creation and Reconstruction},
+    booktitle = {Proceedings of the Asian Conference on Computer Vision (ACCV)},
+    year      = {2022},
+    pages     = {486--502}
+  }

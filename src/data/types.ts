@@ -15,6 +15,7 @@ export type ResearchArea = {
 };
 
 export type Person = {
+  id: string;
   name: string;
   role: string;
   avatar: string;
@@ -25,7 +26,9 @@ export type Person = {
 };
 
 export type Alumnus = {
+  id: string;
   name: string;
+  category: 'pi' | 'postdoc' | 'phd' | 'masters' | 'undergraduate';
   formerRole: string;
   avatar: string;
   currentPosition?: string;
@@ -50,15 +53,11 @@ export type Project = {
   codeUrl?: string;
   tags: string[];
   featured: boolean;
+  featuredOrder?: number;
+  order: number;
   publicationId?: string;
   placeholderLabel?: string;
   authors: string[];
-  affiliations: string[];
-  overview: string[];
-  contributions: string[];
-  method: string;
-  results: string;
-  acknowledgements?: string;
 };
 
 export type Publication = {
@@ -78,4 +77,5 @@ export type Publication = {
   projectUrl?: string;
   bibtex: string;
   placeholderLabel?: string;
+  order: number;
 };

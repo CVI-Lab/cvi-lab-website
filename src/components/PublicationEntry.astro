@@ -5,14 +5,15 @@ import { withBase } from '../utils/paths';
 
 interface Props {
   publication: Publication;
+  orderGroup?: string;
 }
 
-const { publication } = Astro.props;
+const { publication, orderGroup } = Astro.props;
 const titleHref = publication.projectSlug ? `/projects/${publication.projectSlug}/` : publication.projectUrl;
 const resolvedTitleHref = titleHref ? withBase(titleHref) : undefined;
 ---
 
-<article class="publication-entry">
+<article class="publication-entry" data-content-type="publication" data-content-id={publication.id} data-order-group={orderGroup}>
   <div class="publication-entry__venue" aria-label={`${publication.venueShort ?? publication.venue}, ${publication.year}`}>
     <span>{publication.venueShort ?? publication.venue}</span>
   </div>

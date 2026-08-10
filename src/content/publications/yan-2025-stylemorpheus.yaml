@@ -1,0 +1,26 @@
+title: "StyleMorpheus: Learning a StyleGAN-Based 3D-Aware Morphable Face Model with a Disentangled Style Space"
+authors:
+  - Peizhi Yan
+  - Rabab K. Ward
+  - Dan Wang
+  - Qiang Tang
+  - Shan Du
+venue: Neurocomputing
+venueShort: Neurocomputing
+year: 2025
+pages: Article 131329
+project: stylemorpheus
+links:
+  project: https://yan.auroratns.com/docs/morpheus/index.html
+  paper: https://doi.org/10.1016/j.neucom.2025.131329
+order: 4
+bibtex: |
+  @Article{Yan_2025_StyleMorpheus,
+    author  = {Yan, Peizhi and Ward, Rabab K. and Wang, Dan and Tang, Qiang and Du, Shan},
+    title   = {StyleMorpheus: Learning a StyleGAN-Based 3D-Aware Morphable Face Model with a Disentangled Style Space},
+    journal = {Neurocomputing},
+    year    = {2025},
+    volume  = {654},
+    pages   = {131329},
+    doi     = {10.1016/j.neucom.2025.131329}
+  }

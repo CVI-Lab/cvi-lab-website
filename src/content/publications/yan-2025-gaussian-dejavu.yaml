@@ -1,0 +1,26 @@
+title: "Gaussian Deja-vu: Creating Controllable 3D Gaussian Head-Avatars with Enhanced Generalization and Personalization Abilities"
+authors:
+  - Peizhi Yan
+  - Rabab Ward
+  - Qiang Tang
+  - Shan Du
+venue: Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision
+venueShort: WACV
+year: 2025
+month: February
+pages: 276–286
+project: gaussian-dejavu
+links:
+  project: https://yan.auroratns.com/docs/dejavu/index.html
+  paper: https://openaccess.thecvf.com/content/WACV2025/papers/Yan_Gaussian_Deja-vu_Creating_Controllable_3D_Gaussian_Head-Avatars_with_Enhanced_Generalization_WACV_2025_paper.pdf
+  code: https://github.com/PeizhiYan/gaussian-dejavu
+order: 3
+bibtex: |
+  @InProceedings{Yan_2025_WACV,
+    author    = {Yan, Peizhi and Ward, Rabab and Tang, Qiang and Du, Shan},
+    title     = {Gaussian Deja-vu: Creating Controllable 3D Gaussian Head-Avatars with Enhanced Generalization and Personalization Abilities},
+    booktitle = {Proceedings of the Winter Conference on Applications of Computer Vision (WACV)},
+    month     = {February},
+    year      = {2025},
+    pages     = {276--286}
+  }

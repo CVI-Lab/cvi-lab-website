@@ -1,0 +1,130 @@
+{
+  "home": {
+    "primaryAction": "Explore Our Projects",
+    "secondaryAction": "View Publications",
+    "establishedLabel": "Established",
+    "basedAtLabel": "Based at",
+    "basedAtValue": "UBC Okanagan",
+    "themesLabel": "Research themes",
+    "themesValue": "Three connected areas",
+    "introEyebrow": "Who we are",
+    "introTitle": "Research at the Intersection of Vision and Intelligence",
+    "aboutLink": "Learn more about the lab",
+    "researchEyebrow": "Research themes",
+    "researchTitle": "Our Research",
+    "researchIntro": "We investigate complementary areas of artificial intelligence that connect generative modelling, real-world perception, and responsible deployment.",
+    "projectsEyebrow": "Selected work",
+    "projectsTitle": "Featured Projects",
+    "projectsIntro": "Explore selected research projects from the CVI Lab.",
+    "projectsLink": "View all projects",
+    "joinEyebrow": "Opportunities + collaboration",
+    "joinTitle": "Join the CVI Lab",
+    "joinAction": "Learn About Opportunities"
+  },
+  "about": {
+    "heroEyebrow": "About the lab",
+    "heroTitle": "Computational methods for capable, interpretable intelligence.",
+    "overviewEyebrow": "Laboratory overview",
+    "overviewTitle": "Connecting foundational research with real-world questions",
+    "missionEyebrow": "Mission",
+    "missionTitle": "Rigorous research with meaningful impact",
+    "visionEyebrow": "Vision",
+    "visionTitle": "Intelligence worthy of human trust",
+    "themesEyebrow": "Research themes",
+    "themesTitle": "Three Areas, One Connected Agenda",
+    "themesIntro": "Our work moves between generative modelling, multimodal sensing, and responsible deployment.",
+    "approachEyebrow": "How we work",
+    "approachTitle": "Research Approach",
+    "applicationTitle": "Application areas",
+    "piEyebrow": "Principal investigator",
+    "piRole": "Assistant Professor, Computer Science\nThe University of British Columbia, Okanagan Campus",
+    "contactAction": "Contact",
+    "peopleAction": "Meet the lab"
+  },
+  "people": {
+    "heroEyebrow": "People",
+    "heroTitle": "Researchers learning, building, and discovering together.",
+    "heroIntro": "Our lab brings together researchers working across computer vision, graphics, multimodal sensing, and trustworthy artificial intelligence.",
+    "leadershipEyebrow": "Lab leadership",
+    "leadershipTitle": "Principal Investigator",
+    "piRole": "Assistant Professor, Computer Science\nThe University of British Columbia, Okanagan Campus",
+    "contactAction": "Contact Dr. Du",
+    "currentEyebrow": "Current members",
+    "postdocTitle": "Postdoctoral Researchers",
+    "phdTitle": "PhD Students",
+    "mastersTitle": "MSc Students",
+    "undergraduateTitle": "Undergraduate Researchers",
+    "alumniEyebrow": "Former members",
+    "alumniTitle": "Alumni"
+  },
+  "projects": {
+    "heroEyebrow": "Projects",
+    "heroTitle": "Ideas made tangible through models, systems, and experiments.",
+    "heroIntro": "Explore selected CVI Lab research connecting computational innovation with challenging visual, spatial, and multimodal problems."
+  },
+  "publications": {
+    "heroEyebrow": "Publications",
+    "heroTitle": "Research shared with the wider scientific community.",
+    "heroIntro": "Browse our publications in computer vision, computer graphics, multimodal perception, intelligent sensing, and trustworthy AI."
+  },
+  "join": {
+    "heroEyebrow": "Join the lab",
+    "heroTitle": "Build thoughtful, capable intelligence with us.",
+    "sectionEyebrow": "Work with us",
+    "sectionTitle": "Join the Lab",
+    "contactAction": "Contact Dr. Shan Du",
+    "graduateTitle": "PhD and MSc students",
+    "undergraduateTitle": "Undergraduate researchers",
+    "visitingTitle": "Visiting students and researchers",
+    "postdoctoralTitle": "Postdoctoral researchers",
+    "collaborationTitle": "Academic and industry collaboration",
+    "materialsTitle": "Application materials",
+    "emailSubjectLabel": "Suggested email subject",
+    "availabilityTitle": "Availability"
+  },
+  "contact": {
+    "heroEyebrow": "Contact",
+    "heroTitle": "Start a thoughtful conversation with our lab.",
+    "heroIntro": "Contact the CVI Lab regarding prospective students, research collaboration, and general inquiries.",
+    "detailsEyebrow": "Laboratory details",
+    "institutionTitle": "Institution",
+    "addressTitle": "Address",
+    "emailTitle": "Email",
+    "emailName": "Dr. Shan Du",
+    "inquiries": [
+      {
+        "title": "Prospective Students",
+        "text": "Prospective students should review the Join page before contacting Dr. Shan Du. Please include your intended program, research interests, relevant background, expected start date, and the requested supporting materials."
+      },
+      {
+        "title": "Research Collaboration",
+        "text": "Academic and industry researchers are welcome to contact the lab regarding potential collaborations related to its research areas. Please include a short description of the proposed topic and the anticipated form of collaboration."
+      },
+      {
+        "title": "General Inquiries",
+        "text": "For other inquiries related to the laboratory, its publications, projects, or research activities, please contact Dr. Shan Du by email."
+      }
+    ]
+  },
+  "projectDetail": {
+    "contentsLabel": "On this page",
+    "referenceEyebrow": "Reference",
+    "citationTitle": "Citation",
+    "relatedEyebrow": "Continue exploring",
+    "relatedTitle": "Related Projects"
+  },
+  "footer": {
+    "tagline": "In the heart of the Okanagan Valley,\nat a place of mind.",
+    "visitTitle": "Visit",
+    "navigateTitle": "Navigate",
+    "connectTitle": "Connect",
+    "ubcLink": "The University of British Columbia ↗",
+    "githubPlaceholder": "GitHub organization link forthcoming.",
+    "builtNote": "Built for clarity, access, and ongoing research."
+  },
+  "notFound": {
+    "eyebrow": "Page not found",
+    "title": "This path leads beyond the current map.",
+    "intro": "The page may have moved, or the address may be incomplete. Return home or continue exploring our research."
+  }
+}

@@ -1,0 +1,22 @@
+title: Fine-Grained Spatial-Temporal Perception for Gas Leak Segmentation
+authors:
+  - Xinlong Zhao
+  - Shan Du
+venue: IEEE International Conference on Image Processing
+venueShort: ICIP
+year: 2025
+pages: 869–874
+project: fgstp
+links:
+  paper: https://doi.org/10.1109/ICIP55913.2025.11084304
+  code: https://github.com/GeekEagle/FGSTP
+order: 2
+bibtex: |
+  @InProceedings{Zhao_2025_FGSTP,
+    author    = {Zhao, Xinlong and Du, Shan},
+    title     = {Fine-Grained Spatial-Temporal Perception for Gas Leak Segmentation},
+    booktitle = {2025 IEEE International Conference on Image Processing (ICIP)},
+    year      = {2025},
+    pages     = {869--874},
+    doi       = {10.1109/ICIP55913.2025.11084304}
+  }

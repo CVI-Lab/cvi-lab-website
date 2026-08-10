@@ -1,0 +1,21 @@
+title: "VSF: Simple, Efficient, and Effective Negative Guidance in Few-Step Image Generation Models By Value Sign Flip"
+authors:
+  - Wenqi Guo
+  - Shan Du
+venue: International Conference on Learning Representations
+venueShort: ICLR
+year: 2026
+project: vsf
+links:
+  project: https://vsf.weasoft.com/
+  paper: https://openreview.net/forum?id=W2NINfoVtN
+  code: https://github.com/weathon/VSF
+order: 5
+bibtex: |
+  @InProceedings{Guo_2026_VSF,
+    author    = {Guo, Wenqi and Du, Shan},
+    title     = {{VSF}: Simple, Efficient, and Effective Negative Guidance in Few-Step Image Generation Models By Value Sign Flip},
+    booktitle = {The Fourteenth International Conference on Learning Representations},
+    year      = {2026},
+    url       = {https://openreview.net/forum?id=W2NINfoVtN}
+  }

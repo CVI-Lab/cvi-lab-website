@@ -1,0 +1,27 @@
+title: Neural 3D Face Shape Stylization Based on Single Style Template via Weakly Supervised Learning
+authors:
+  - Peizhi Yan
+  - Rabab K. Ward
+  - Qiang Tang
+  - Shan Du
+venue: IEEE Transactions on Visualization and Computer Graphics
+venueShort: TVCG
+year: 2025
+month: October
+pages: 9522–9529
+project: neural-3d-face-stylization
+links:
+  project: https://yan.auroratns.com/docs/style/index.html
+  paper: https://doi.org/10.1109/TVCG.2025.3573690
+order: 5
+bibtex: |
+  @Article{Yan_2025_FaceStylization,
+    author  = {Yan, Peizhi and Ward, Rabab K. and Tang, Qiang and Du, Shan},
+    title   = {Neural 3D Face Shape Stylization Based on Single Style Template via Weakly Supervised Learning},
+    journal = {IEEE Transactions on Visualization and Computer Graphics},
+    year    = {2025},
+    volume  = {31},
+    number  = {10},
+    pages   = {9522--9529},
+    doi     = {10.1109/TVCG.2025.3573690}
+  }

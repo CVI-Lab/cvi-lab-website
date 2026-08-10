@@ -1,0 +1,24 @@
+title: "LangGas: Introducing Language in Selective Zero-Shot Background Subtraction for Semi-Transparent Gas Leak Detection with a New Dataset"
+authors:
+  - Wenqi Guo
+  - Yiyang Du
+  - Shan Du
+venue: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops
+venueShort: CVPRW
+year: 2025
+month: June
+pages: 4529–4539
+project: langgas
+links:
+  paper: https://openaccess.thecvf.com/content/CVPR2025W/PBVS/papers/Guo_LangGas_Introducing_Language_in_Selective_Zero-Shot_Background_Subtraction_for_Semi-Transparent_CVPRW_2025_paper.pdf
+  code: https://github.com/weathon/Lang-Gas
+order: 6
+bibtex: |
+  @InProceedings{Guo_2025_CVPR,
+    author    = {Guo, Wenqi and Du, Yiyang and Du, Shan},
+    title     = {LangGas: Introducing Language in Selective Zero-Shot Background Subtraction for Semi-Transparent Gas Leak Detection with a New Dataset},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
+    month     = {June},
+    year      = {2025},
+    pages     = {4529--4539}
+  }

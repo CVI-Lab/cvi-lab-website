@@ -1,53 +1,46 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { pageCopy } from '../data/page-copy';
 import { site } from '../data/site';
 
-const inquiryTypes = [
-  {
-    number: '01',
-    title: 'Prospective Students',
-    text: 'Prospective students should review the Join page before contacting Dr. Shan Du. Please include your intended program, research interests, relevant background, expected start date, and the requested supporting materials.',
-  },
-  {
-    number: '02',
-    title: 'Research Collaboration',
-    text: 'Academic and industry researchers are welcome to contact the lab regarding potential collaborations related to its research areas. Please include a short description of the proposed topic and the anticipated form of collaboration.',
-  },
-  {
-    number: '03',
-    title: 'General Inquiries',
-    text: 'For other inquiries related to the laboratory, its publications, projects, or research activities, please contact Dr. Shan Du by email.',
-  },
-];
+const inquiryTypes = pageCopy.contact.inquiries.map((inquiry, index) => ({
+  ...inquiry,
+  number: String(index + 1).padStart(2, '0'),
+  editPrefix: `pages:contact.inquiries.${index}`,
+}));
 ---
 
 <BaseLayout title="Contact" description="Contact the CVI Lab regarding prospective students, research collaboration, and general inquiries.">
   <section class="page-hero page-hero--compact">
     <div class="container page-hero__grid">
       <div>
-        <p class="eyebrow">Contact</p>
-        <h1>Start a thoughtful conversation with our lab.</h1>
+        <p class="eyebrow" data-inline-edit="pages:contact.heroEyebrow">{pageCopy.contact.heroEyebrow}</p>
+        <h1 data-inline-edit="pages:contact.heroTitle">{pageCopy.contact.heroTitle}</h1>
       </div>
-      <p>Contact the CVI Lab regarding prospective students, research collaboration, and general inquiries.</p>
+      <p data-inline-edit="pages:contact.heroIntro">{pageCopy.contact.heroIntro}</p>
     </div>
   </section>
 
   <section class="section contact-section" aria-labelledby="contact-details-title">
     <div class="container contact-grid">
       <div class="contact-card">
-        <p class="eyebrow">Laboratory details</p>
-        <h2 id="contact-details-title">{site.officialName}</h2>
+        <p class="eyebrow" data-inline-edit="pages:contact.detailsEyebrow">{pageCopy.contact.detailsEyebrow}</p>
+        <h2 id="contact-details-title" data-inline-edit="site:officialName">{site.officialName}</h2>
         <div class="contact-card__block">
-          <h3>Institution</h3>
-          <p>{site.institution}<br />{site.faculty}<br />{site.department}</p>
+          <h3 data-inline-edit="pages:contact.institutionTitle">{pageCopy.contact.institutionTitle}</h3>
+          <p>
+            <span data-inline-edit="site:institution">{site.institution}</span><br />
+            <span data-inline-edit="site:faculty">{site.faculty}</span><br />
+            <span data-inline-edit="site:department">{site.department}</span>
+          </p>
         </div>
         <div class="contact-card__block">
-          <h3>Address</h3>
-          <address>{site.address.map((line) => <>{line}<br /></>)}</address>
+          <h3 data-inline-edit="pages:contact.addressTitle">{pageCopy.contact.addressTitle}</h3>
+          <address data-inline-edit="site:address" data-inline-format="lines">{site.address.map((line) => <>{line}<br /></>)}</address>
         </div>
         <div class="contact-card__block">
-          <h3>Email</h3>
-          <p>Dr. Shan Du: <a href={`mailto:${site.email}`}>{site.email}</a></p>
+          <h3 data-inline-edit="pages:contact.emailTitle">{pageCopy.contact.emailTitle}</h3>
+          <p><span data-inline-edit="pages:contact.emailName">{pageCopy.contact.emailName}</span>: <span data-inline-edit="site:email"><a href={`mailto:${site.email}`}>{site.email}</a></span></p>
         </div>
       </div>
 
@@ -56,8 +49,8 @@ const inquiryTypes = [
           <article class="inquiry-card">
             <span>{inquiry.number}</span>
             <div>
-              <h2>{inquiry.title}</h2>
-              <p>{inquiry.text}</p>
+              <h2 data-inline-edit={`${inquiry.editPrefix}.title`}>{inquiry.title}</h2>
+              <p data-inline-edit={`${inquiry.editPrefix}.text`}>{inquiry.text}</p>
             </div>
           </article>
         ))}

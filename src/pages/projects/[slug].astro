@@ -6,29 +6,52 @@ import Button from '../../components/Button.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import ResponsiveImage from '../../components/ResponsiveImage.astro';
 import Tag from '../../components/Tag.astro';
-import { projects } from '../../data/projects';
-import { publications } from '../../data/publications';
+import { getEntry, render } from 'astro:content';
+import { getProjects, getPublications } from '../../data/content';
+import { pageCopy } from '../../data/page-copy';
 import { withBase } from '../../utils/paths';
+import 'katex/dist/katex.min.css';
 
-export const getStaticPaths = (() => projects.map((project) => ({ params: { slug: project.slug }, props: { project } }))) satisfies GetStaticPaths;
+export const getStaticPaths = (async () => {
+  const projects = await getProjects();
+  return projects.map((project) => ({ params: { slug: project.slug }, props: { project } }));
+}) satisfies GetStaticPaths;
 
 const { project } = Astro.props;
+const projects = await getProjects();
+const publications = await getPublications();
 const publication = publications.find((item) => item.id === project.publicationId);
 const relatedProjects = projects.filter((item) => item.slug !== project.slug).slice(0, 2);
+const projectEntry = await getEntry('projects', project.slug);
+
+if (!projectEntry) {
+  throw new Error(`Project content not found for "${project.slug}".`);
+}
+
+const { Content, headings } = await render(projectEntry);
+const summaryHeadings = headings.filter((heading) => heading.depth === 2);
 ---
 
 <BaseLayout title={project.title} description={project.summary} image={project.overviewImage}>
   <article class="project-detail">
     <header class="project-detail__header">
-      <div class="container project-detail__header-grid">
+      <div class="container project-detail__header-grid" data-content-type="project" data-content-id={project.slug}>
         <div>
           <a class="breadcrumb" href={withBase('/projects/')}>Projects <span>/</span> {project.title}</a>
           {project.placeholderLabel && <p class="placeholder-label">{project.placeholderLabel}</p>}
-          <h1>{project.title}</h1>
-          <p class="project-detail__subtitle">{project.subtitle}</p>
+          <h1 data-inline-project-id={project.slug} data-inline-project-field="title" data-inline-label="Project title">{project.title}</h1>
+          <p class="project-detail__subtitle" data-inline-project-id={project.slug} data-inline-project-field="subtitle" data-inline-label="Project subtitle">{project.subtitle}</p>
           <p class="project-detail__authors">{project.authors.join(', ')}</p>
           <p class="project-detail__venue">{project.venueLong}, {project.year}</p>
-          <div class="tag-list">{project.tags.map((tag) => <Tag>{tag}</Tag>)}</div>
+          <div
+            class="tag-list"
+            data-inline-project-id={project.slug}
+            data-inline-project-field="tags"
+            data-inline-label="Project tags"
+            data-inline-format="lines"
+          >
+            {project.tags.map((tag) => <Tag>{tag}</Tag>)}
+          </div>
         </div>
         <div class="project-detail__links">
           {project.projectUrl && <Button href={project.projectUrl} external>Project Website</Button>}
@@ -40,55 +63,29 @@ const relatedProjects = projects.filter((item) => item.slug !== project.slug).sl
 
     <div class="container project-detail__visual">
       <ResponsiveImage src={project.overviewImage} alt={project.imageAlt} eager placeholderLabel="Project visual unavailable" />
-      <p>{project.visualCaption}</p>
+      <p data-inline-project-id={project.slug} data-inline-project-field="imageCaption" data-inline-label="Image caption">{project.visualCaption}</p>
     </div>
 
     <div class="container project-detail__body">
-      <aside class="project-detail__toc" aria-label="On this page">
-        <p>On this page</p>
-        <a href="#overview">Overview</a>
-        <a href="#contributions">Key Contributions</a>
-        <a href="#method">Method</a>
-        <a href="#results">Results</a>
-        <a href="#citation">Citation</a>
-        {project.acknowledgements && <a href="#acknowledgements">Acknowledgements</a>}
+      <aside class="project-detail__toc" aria-label={pageCopy.projectDetail.contentsLabel}>
+        <p data-inline-edit="pages:projectDetail.contentsLabel">{pageCopy.projectDetail.contentsLabel}</p>
+        {summaryHeadings.map((heading) => <a href={`#${heading.slug}`}>{heading.text}</a>)}
+        {publication && <a href="#citation">Citation</a>}
       </aside>
 
-      <div class="project-detail__content prose prose--project">
-        <section id="overview">
-          <p class="eyebrow">I. Overview</p>
-          <h2>Overview</h2>
-          {project.overview.map((paragraph) => <p>{paragraph}</p>)}
-        </section>
-        <section id="contributions">
-          <p class="eyebrow">II. Contributions</p>
-          <h2>Key Contributions</h2>
-          <ul class="contribution-list">
-            {project.contributions.map((contribution, index) => (
-              <li><span>0{index + 1}</span><p>{contribution}</p></li>
-            ))}
-          </ul>
-        </section>
-        <section id="method">
-          <p class="eyebrow">III. Method</p>
-          <h2>Method</h2>
-          <p>{project.method}</p>
-        </section>
-        <section id="results">
-          <p class="eyebrow">IV. Evaluation</p>
-          <h2>Results</h2>
-          <p>{project.results}</p>
-        </section>
-        <section id="citation">
-          <p class="eyebrow">V. Reference</p>
-          <h2>Citation</h2>
-          {publication ? <BibTeXBlock bibtex={publication.bibtex} open /> : <p>Citation details will be added when available.</p>}
-        </section>
-        {project.acknowledgements && (
-          <section id="acknowledgements">
-            <p class="eyebrow">VI. Thanks</p>
-            <h2>Acknowledgements</h2>
-            <p>{project.acknowledgements}</p>
+      <div
+        class="project-detail__content prose prose--project paper-summary"
+        data-inline-project-id={project.slug}
+        data-inline-project-field="body"
+        data-inline-label="Project detail Markdown"
+        data-inline-format="markdown"
+      >
+        <Content />
+        {publication && (
+          <section class="paper-summary__citation" id="citation">
+            <p class="eyebrow" data-inline-edit="pages:projectDetail.referenceEyebrow">{pageCopy.projectDetail.referenceEyebrow}</p>
+            <h2 data-inline-edit="pages:projectDetail.citationTitle">{pageCopy.projectDetail.citationTitle}</h2>
+            <BibTeXBlock bibtex={publication.bibtex} open />
           </section>
         )}
       </div>
@@ -97,8 +94,8 @@ const relatedProjects = projects.filter((item) => item.slug !== project.slug).sl
     {relatedProjects.length > 0 && (
       <section class="section section--alt related-projects" aria-labelledby="related-title">
         <div class="container">
-          <p class="eyebrow">Continue exploring</p>
-          <h2 id="related-title">Related Projects</h2>
+          <p class="eyebrow" data-inline-edit="pages:projectDetail.relatedEyebrow">{pageCopy.projectDetail.relatedEyebrow}</p>
+          <h2 id="related-title" data-inline-edit="pages:projectDetail.relatedTitle">{pageCopy.projectDetail.relatedTitle}</h2>
           <div class="project-grid project-grid--related">
             {relatedProjects.map((item) => <ProjectCard project={item} />)}
           </div>

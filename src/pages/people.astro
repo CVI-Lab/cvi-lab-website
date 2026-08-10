@@ -4,25 +4,48 @@ import AlumniCard from '../components/AlumniCard.astro';
 import PersonCard from '../components/PersonCard.astro';
 import ResponsiveImage from '../components/ResponsiveImage.astro';
 import SectionHeading from '../components/SectionHeading.astro';
-import { alumni, mscStudents, phdStudents, piBiography, principalInvestigator } from '../data/people';
+import { getPeople } from '../data/content';
+import { pageCopy } from '../data/page-copy';
 import { withBase } from '../utils/paths';
+
+const {
+  alumni,
+  mscStudents,
+  phdStudents,
+  piBiography,
+  postdoctoralResearchers,
+  principalInvestigator,
+  undergraduateResearchers,
+} = await getPeople();
+
+const currentGroups = [
+  { id: 'postdoc', title: pageCopy.people.postdocTitle, titleKey: 'pages:people.postdocTitle', people: postdoctoralResearchers },
+  { id: 'phd', title: pageCopy.people.phdTitle, titleKey: 'pages:people.phdTitle', people: phdStudents },
+  { id: 'msc', title: pageCopy.people.mastersTitle, titleKey: 'pages:people.mastersTitle', people: mscStudents },
+  { id: 'undergraduate', title: pageCopy.people.undergraduateTitle, titleKey: 'pages:people.undergraduateTitle', people: undergraduateResearchers },
+].filter((group) => group.people.length > 0);
 ---
 
 <BaseLayout title="People" description="Meet the principal investigator, students, and alumni of the CVI Lab at UBC Okanagan.">
   <section class="page-hero page-hero--compact">
     <div class="container page-hero__grid">
       <div>
-        <p class="eyebrow">People</p>
-        <h1>Researchers learning, building, and discovering together.</h1>
+        <p class="eyebrow" data-inline-edit="pages:people.heroEyebrow">{pageCopy.people.heroEyebrow}</p>
+        <h1 data-inline-edit="pages:people.heroTitle">{pageCopy.people.heroTitle}</h1>
       </div>
-      <p>Our lab brings together researchers working across computer vision, graphics, multimodal sensing, and trustworthy artificial intelligence.</p>
+      <p data-inline-edit="pages:people.heroIntro">{pageCopy.people.heroIntro}</p>
     </div>
   </section>
 
   <section class="section people-section" aria-labelledby="people-pi-title">
     <div class="container">
-      <SectionHeading eyebrow="Lab leadership" title="Principal Investigator" />
-      <article class="pi-card">
+      <SectionHeading
+        eyebrow={pageCopy.people.leadershipEyebrow}
+        title={pageCopy.people.leadershipTitle}
+        eyebrowEditKey="pages:people.leadershipEyebrow"
+        titleEditKey="pages:people.leadershipTitle"
+      />
+      <article class="pi-card" data-content-type="person" data-content-id={principalInvestigator.id}>
         <ResponsiveImage
           src={principalInvestigator.avatar}
           alt="Illustrated portrait of Dr. Shan Du"
@@ -31,37 +54,40 @@ import { withBase } from '../utils/paths';
         />
         <div class="pi-card__content">
           <h2 id="people-pi-title">{principalInvestigator.name}</h2>
-          <p class="pi-card__role">Assistant Professor, Computer Science<br />The University of British Columbia, Okanagan Campus</p>
+          <p class="pi-card__role">{principalInvestigator.role}</p>
           {piBiography.map((paragraph) => <p>{paragraph}</p>)}
-          <a class="text-link" href={withBase('/contact/')}>Contact Dr. Du</a>
+          <a class="text-link" href={withBase('/contact/')}>{pageCopy.people.contactAction}</a>
         </div>
       </article>
     </div>
   </section>
 
-  {phdStudents.length > 0 && (
-    <section class="section section--alt people-section" aria-labelledby="phd-title">
+  {currentGroups.map((group, index) => (
+    <section class:list={['section', 'people-section', { 'section--alt': index % 2 === 0 }]} aria-labelledby={`${group.id}-title`}>
       <div class="container">
-        <SectionHeading id="phd-title" eyebrow="Current members" title="PhD Students" />
-        <div class="people-grid">{phdStudents.map((person) => <PersonCard person={person} />)}</div>
+        <SectionHeading
+          id={`${group.id}-title`}
+          eyebrow={pageCopy.people.currentEyebrow}
+          title={group.title}
+          eyebrowEditKey="pages:people.currentEyebrow"
+          titleEditKey={group.titleKey}
+        />
+        <div class="people-grid">{group.people.map((person) => <PersonCard person={person} orderGroup={`person:current:${group.id === 'msc' ? 'masters' : group.id}`} />)}</div>
       </div>
     </section>
-  )}
-
-  {mscStudents.length > 0 && (
-    <section class="section people-section" aria-labelledby="msc-title">
-      <div class="container">
-        <SectionHeading id="msc-title" eyebrow="Current members" title="MSc Students" />
-        <div class="people-grid">{mscStudents.map((person) => <PersonCard person={person} />)}</div>
-      </div>
-    </section>
-  )}
+  ))}
 
   {alumni.length > 0 && (
-    <section class="section section--alt alumni-section people-section" aria-labelledby="alumni-title">
+    <section class:list={['section', 'alumni-section', 'people-section', { 'section--alt': currentGroups.length % 2 === 0 }]} aria-labelledby="alumni-title">
       <div class="container">
-        <SectionHeading id="alumni-title" eyebrow="Former members" title="Alumni" />
-        <div class="people-grid people-grid--alumni">{alumni.map((person) => <AlumniCard alumnus={person} />)}</div>
+        <SectionHeading
+          id="alumni-title"
+          eyebrow={pageCopy.people.alumniEyebrow}
+          title={pageCopy.people.alumniTitle}
+          eyebrowEditKey="pages:people.alumniEyebrow"
+          titleEditKey="pages:people.alumniTitle"
+        />
+        <div class="people-grid people-grid--alumni">{alumni.map((person) => <AlumniCard alumnus={person} orderGroup={`person:alumni:${person.category}`} />)}</div>
       </div>
     </section>
   )}

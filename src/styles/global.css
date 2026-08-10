@@ -1507,7 +1507,7 @@ a {
   gap: clamp(3rem, 9vw, 8rem);
   padding-top: clamp(4.5rem, 9vw, 8rem);
   padding-bottom: clamp(5rem, 10vw, 9rem);
-  grid-template-columns: 180px minmax(0, 760px);
+  grid-template-columns: 220px minmax(0, 760px);
   justify-content: center;
 }
 
@@ -1544,11 +1544,13 @@ a {
   max-width: none;
 }
 
-.prose--project section {
+.paper-summary > h2,
+.paper-summary__citation {
   scroll-margin-top: 110px;
 }
 
-.prose--project section + section {
+.paper-summary > h2:not(:first-child),
+.paper-summary__citation {
   margin-top: clamp(4.5rem, 8vw, 7rem);
   padding-top: clamp(4.5rem, 8vw, 7rem);
   border-top: 1px solid var(--color-border);
@@ -1557,6 +1559,63 @@ a {
 .prose--project h2 {
   margin-bottom: 1.5rem;
   font-size: clamp(1.7rem, 2.4vw, 2.2rem);
+}
+
+.paper-summary h3 {
+  margin-top: 2.7rem;
+  margin-bottom: 1rem;
+  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
+}
+
+.paper-summary h4 {
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+  color: var(--color-text);
+  font-size: 1.05rem;
+}
+
+.paper-summary > hr {
+  display: none;
+}
+
+.paper-summary ul,
+.paper-summary ol {
+  padding-left: 1.4rem;
+}
+
+.paper-summary li {
+  padding-left: 0.25rem;
+}
+
+.paper-summary li + li {
+  margin-top: 0.65rem;
+}
+
+.paper-summary p,
+.paper-summary li {
+  overflow-wrap: anywhere;
+}
+
+.paper-summary .katex {
+  color: var(--color-text);
+  font-size: 1.04em;
+}
+
+.paper-summary .katex-display {
+  max-width: 100%;
+  margin: 1.8rem 0;
+  padding: 0.35rem 0 0.55rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.paper-summary .katex-display > .katex {
+  min-width: max-content;
+  text-align: center;
+}
+
+.paper-summary__citation .eyebrow {
+  margin-bottom: 0.8rem;
 }
 
 .contribution-list {

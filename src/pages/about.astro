@@ -5,31 +5,34 @@ import ResearchAreaCard from '../components/ResearchAreaCard.astro';
 import ResponsiveImage from '../components/ResponsiveImage.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import Tag from '../components/Tag.astro';
-import { piBiography, piResearch, principalInvestigator } from '../data/people';
+import { getPeople } from '../data/content';
+import { pageCopy } from '../data/page-copy';
 import { researchAreas } from '../data/research';
 import { site } from '../data/site';
 import { withBase } from '../utils/paths';
+
+const { piBiography, piResearch, principalInvestigator } = await getPeople();
 ---
 
 <BaseLayout title="About" description={`Learn about ${site.officialName}, its mission, research approach, and principal investigator.`}>
   <section class="page-hero page-hero--about">
     <div class="container page-hero__grid">
       <div>
-        <p class="eyebrow">About the lab</p>
-        <h1>Computational methods for capable, interpretable intelligence.</h1>
+        <p class="eyebrow" data-inline-edit="pages:about.heroEyebrow">{pageCopy.about.heroEyebrow}</p>
+        <h1 data-inline-edit="pages:about.heroTitle">{pageCopy.about.heroTitle}</h1>
       </div>
-      <p>{site.aboutIntroduction[0]}</p>
+      <p data-inline-edit="site:aboutIntroduction.0">{site.aboutIntroduction[0]}</p>
     </div>
   </section>
 
   <section class="section about-overview" aria-labelledby="overview-title">
     <div class="container about-overview__grid">
       <div>
-        <p class="eyebrow">Laboratory overview</p>
-        <h2 id="overview-title">Connecting foundational research with real-world questions</h2>
+        <p class="eyebrow" data-inline-edit="pages:about.overviewEyebrow">{pageCopy.about.overviewEyebrow}</p>
+        <h2 id="overview-title" data-inline-edit="pages:about.overviewTitle">{pageCopy.about.overviewTitle}</h2>
       </div>
       <div class="prose prose--large">
-        {site.aboutIntroduction.slice(1).map((paragraph) => <p>{paragraph}</p>)}
+        {site.aboutIntroduction.slice(1).map((paragraph, index) => <p data-inline-edit={`site:aboutIntroduction.${index + 1}`}>{paragraph}</p>)}
       </div>
     </div>
   </section>
@@ -39,15 +42,15 @@ import { withBase } from '../utils/paths';
       <div class="principles-grid">
         <article class="principle-card">
           <span class="principle-card__number">01</span>
-          <p class="eyebrow">Mission</p>
-          <h2 id="mission-title">Rigorous research with meaningful impact</h2>
-          <p>{site.mission}</p>
+          <p class="eyebrow" data-inline-edit="pages:about.missionEyebrow">{pageCopy.about.missionEyebrow}</p>
+          <h2 id="mission-title" data-inline-edit="pages:about.missionTitle">{pageCopy.about.missionTitle}</h2>
+          <p data-inline-edit="site:mission">{site.mission}</p>
         </article>
         <article class="principle-card">
           <span class="principle-card__number">02</span>
-          <p class="eyebrow">Vision</p>
-          <h2>Intelligence worthy of human trust</h2>
-          <p>{site.vision}</p>
+          <p class="eyebrow" data-inline-edit="pages:about.visionEyebrow">{pageCopy.about.visionEyebrow}</p>
+          <h2 data-inline-edit="pages:about.visionTitle">{pageCopy.about.visionTitle}</h2>
+          <p data-inline-edit="site:vision">{site.vision}</p>
         </article>
       </div>
     </div>
@@ -57,24 +60,33 @@ import { withBase } from '../utils/paths';
     <div class="container">
       <SectionHeading
         id="themes-title"
-        eyebrow="Research themes"
-        title="Three Areas, One Connected Agenda"
-        intro="Our work moves between generative modelling, multimodal sensing, and responsible deployment."
+        eyebrow={pageCopy.about.themesEyebrow}
+        title={pageCopy.about.themesTitle}
+        intro={pageCopy.about.themesIntro}
+        eyebrowEditKey="pages:about.themesEyebrow"
+        titleEditKey="pages:about.themesTitle"
+        introEditKey="pages:about.themesIntro"
       />
       <div class="research-stack">
-        {researchAreas.map((area) => <ResearchAreaCard area={area} expanded />)}
+        {researchAreas.map((area, index) => <ResearchAreaCard area={area} expanded editPrefix={`research:${index}`} />)}
       </div>
     </div>
   </section>
 
   <section class="section section--alt" aria-labelledby="approach-title">
     <div class="container approach-grid">
-      <SectionHeading id="approach-title" eyebrow="How we work" title="Research Approach" />
+      <SectionHeading
+        id="approach-title"
+        eyebrow={pageCopy.about.approachEyebrow}
+        title={pageCopy.about.approachTitle}
+        eyebrowEditKey="pages:about.approachEyebrow"
+        titleEditKey="pages:about.approachTitle"
+      />
       <div class="prose">
-        {site.researchApproach.map((paragraph) => <p>{paragraph}</p>)}
-        <h3>Application areas</h3>
-        <p>{site.applicationAreas}</p>
-        <div class="tag-list tag-list--roomy">
+        {site.researchApproach.map((paragraph, index) => <p data-inline-edit={`site:researchApproach.${index}`}>{paragraph}</p>)}
+        <h3 data-inline-edit="pages:about.applicationTitle">{pageCopy.about.applicationTitle}</h3>
+        <p data-inline-edit="site:applicationAreas">{site.applicationAreas}</p>
+        <div class="tag-list tag-list--roomy" data-inline-edit="site:applicationTags" data-inline-format="lines">
           {site.applicationTags.map((tag) => <Tag>{tag}</Tag>)}
         </div>
       </div>
@@ -82,7 +94,7 @@ import { withBase } from '../utils/paths';
   </section>
 
   <section class="section" aria-labelledby="pi-title">
-    <div class="container pi-feature">
+    <div class="container pi-feature" data-content-type="person" data-content-id={principalInvestigator.id}>
       <ResponsiveImage
         src={principalInvestigator.avatar}
         alt="Illustrated portrait of Dr. Shan Du"
@@ -90,14 +102,14 @@ import { withBase } from '../utils/paths';
         placeholderLabel="PI portrait unavailable"
       />
       <div class="pi-feature__content">
-        <p class="eyebrow">Principal investigator</p>
-        <h2 id="pi-title">Dr. Shan Du</h2>
-        <p class="pi-feature__role">Assistant Professor, Computer Science<br />The University of British Columbia, Okanagan Campus</p>
+        <p class="eyebrow">{pageCopy.about.piEyebrow}</p>
+        <h2 id="pi-title">{principalInvestigator.name}</h2>
+        <p class="pi-feature__role">{principalInvestigator.role}</p>
         {piBiography.map((paragraph) => <p>{paragraph}</p>)}
         <p>{piResearch}</p>
         <div class="pi-feature__actions">
-          <Button href={withBase('/contact/')} variant="secondary">Contact</Button>
-          <a class="text-link" href={withBase('/people/')}>Meet the lab</a>
+          <Button href={withBase('/contact/')} variant="secondary">{pageCopy.about.contactAction}</Button>
+          <a class="text-link" href={withBase('/people/')}>{pageCopy.about.peopleAction}</a>
         </div>
       </div>
     </div>

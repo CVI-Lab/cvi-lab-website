@@ -1,24 +1,27 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
-import { projects } from '../../data/projects';
+import { getProjects } from '../../data/content';
+import { pageCopy } from '../../data/page-copy';
+
+const projects = await getProjects();
 ---
 
 <BaseLayout title="Projects" description="Explore research projects from the CVI Lab in generative 3D vision, multimodal perception, and trustworthy AI.">
   <section class="page-hero page-hero--compact">
     <div class="container page-hero__grid">
       <div>
-        <p class="eyebrow">Projects</p>
-        <h1>Ideas made tangible through models, systems, and experiments.</h1>
+        <p class="eyebrow" data-inline-edit="pages:projects.heroEyebrow">{pageCopy.projects.heroEyebrow}</p>
+        <h1 data-inline-edit="pages:projects.heroTitle">{pageCopy.projects.heroTitle}</h1>
       </div>
-      <p>Explore selected CVI Lab research connecting computational innovation with challenging visual, spatial, and multimodal problems.</p>
+      <p data-inline-edit="pages:projects.heroIntro">{pageCopy.projects.heroIntro}</p>
     </div>
   </section>
 
   <section class="section projects-page" aria-label="Research projects">
     <div class="container">
       <div class="project-grid project-grid--page">
-        {projects.map((project, index) => <ProjectCard project={project} priority={index < 2} />)}
+        {projects.map((project, index) => <ProjectCard project={project} priority={index < 2} orderGroup="project" />)}
       </div>
     </div>
   </section>

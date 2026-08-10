@@ -5,13 +5,14 @@ import { withBase } from '../utils/paths';
 
 interface Props {
   person: Person;
+  orderGroup?: string;
 }
 
-const { person } = Astro.props;
+const { person, orderGroup } = Astro.props;
 const hasLinks = Boolean(person.email || person.links?.length);
 ---
 
-<article class="person-card">
+<article class="person-card" data-content-type="person" data-content-id={person.id} data-order-group={orderGroup}>
   <ResponsiveImage
     src={person.avatar}
     alt={`Illustrated portrait of ${person.name}`}

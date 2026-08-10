@@ -1,5 +1,6 @@
 ---
 import { navigation } from '../data/navigation';
+import { pageCopy } from '../data/page-copy';
 import { site } from '../data/site';
 import { withBase } from '../utils/paths';
 
@@ -24,37 +25,41 @@ const footerLinks = navigation.filter((item) => item.href !== '/' && item.label 
             <span class="brand__descriptor">Laboratory for Computational<br />Vision and Intelligence</span>
           </span>
         </a>
-        <p>In the heart of the Okanagan Valley,<br />at a place of mind.</p>
+        <p data-inline-edit="pages:footer.tagline">
+          {pageCopy.footer.tagline.split('\n').map((line) => <>{line}<br /></>)}
+        </p>
       </div>
 
       <div class="site-footer__column">
-        <h2>Visit</h2>
+        <h2 data-inline-edit="pages:footer.visitTitle">{pageCopy.footer.visitTitle}</h2>
         <address>
           {site.institution}<br />
           {site.faculty}<br />
           {site.department}<br /><br />
-          {site.address.map((line) => <>{line}<br /></>)}
+          <span data-inline-edit="site:address" data-inline-format="lines">
+            {site.address.map((line) => <>{line}<br /></>)}
+          </span>
         </address>
       </div>
 
       <div class="site-footer__column">
-        <h2>Navigate</h2>
+        <h2 data-inline-edit="pages:footer.navigateTitle">{pageCopy.footer.navigateTitle}</h2>
         <nav aria-label="Footer navigation">
           <ul>{footerLinks.map((item) => <li><a href={withBase(item.href)}>{item.label}</a></li>)}</ul>
         </nav>
       </div>
 
       <div class="site-footer__column">
-        <h2>Connect</h2>
+        <h2 data-inline-edit="pages:footer.connectTitle">{pageCopy.footer.connectTitle}</h2>
         <a class="site-footer__email" href={`mailto:${site.email}`}>{site.email}</a>
-        <a href="https://www.ubc.ca/" target="_blank" rel="noreferrer">The University of British Columbia ↗</a>
-        <p class="site-footer__placeholder">GitHub organization link forthcoming.</p>
+        <a href="https://www.ubc.ca/" target="_blank" rel="noreferrer">{pageCopy.footer.ubcLink}</a>
+        <p class="site-footer__placeholder" data-inline-edit="pages:footer.githubPlaceholder">{pageCopy.footer.githubPlaceholder}</p>
       </div>
     </div>
 
     <div class="site-footer__bottom">
       <p>© {site.established}–{currentYear} {site.officialName}.</p>
-      <p>Built for clarity, access, and ongoing research.</p>
+      <p data-inline-edit="pages:footer.builtNote">{pageCopy.footer.builtNote}</p>
     </div>
   </div>
 </footer>

@@ -1,0 +1,21 @@
+title: Full Publication Title
+authors:
+  - First Author
+  - Shan Du
+venue: Full Venue Name
+venueShort: VENUE
+year: 2026
+month: Month
+pages: 1–10
+project: project-slug
+links:
+  project: https://example.com/project
+  paper: https://example.com/paper.pdf
+  code: https://github.com/example/repository
+order: 100
+bibtex: |
+  @Article{Author_2026_Key,
+    author = {Author, First and Du, Shan},
+    title  = {Full Publication Title},
+    year   = {2026}
+  }

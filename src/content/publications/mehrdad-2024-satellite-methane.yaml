@@ -1,0 +1,27 @@
+title: First Investigation of Long-Term Methane Emissions from Wastewater Treatment Using Satellite Remote Sensing
+authors:
+  - Seyed Mostafa Mehrdad
+  - Bo Zhang
+  - Wenqi Guo
+  - Shan Du
+  - Ke Du
+venue: Remote Sensing
+venueShort: Remote Sensing
+year: 2024
+month: November
+pages: Article 4422
+project: satellite-methane-wwt
+links:
+  paper: https://doi.org/10.3390/rs16234422
+order: 1
+bibtex: |
+  @Article{Mehrdad_2024_SatelliteMethane,
+    author         = {Mehrdad, Seyed Mostafa and Zhang, Bo and Guo, Wenqi and Du, Shan and Du, Ke},
+    title          = {First Investigation of Long-Term Methane Emissions from Wastewater Treatment Using Satellite Remote Sensing},
+    journal        = {Remote Sensing},
+    year           = {2024},
+    volume         = {16},
+    number         = {23},
+    article-number = {4422},
+    doi            = {10.3390/rs16234422}
+  }

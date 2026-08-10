@@ -6,14 +6,27 @@ interface Props {
   align?: 'left' | 'center';
   headingLevel?: 'h1' | 'h2';
   id?: string;
+  eyebrowEditKey?: string;
+  titleEditKey?: string;
+  introEditKey?: string;
 }
 
-const { eyebrow, title, intro, align = 'left', headingLevel = 'h2', id } = Astro.props;
+const {
+  eyebrow,
+  title,
+  intro,
+  align = 'left',
+  headingLevel = 'h2',
+  id,
+  eyebrowEditKey,
+  titleEditKey,
+  introEditKey,
+} = Astro.props;
 const Heading = headingLevel;
 ---
 
 <header class:list={['section-heading', `section-heading--${align}`]}>
-  {eyebrow && <p class="eyebrow">{eyebrow}</p>}
-  <Heading id={id}>{title}</Heading>
-  {intro && <p class="section-heading__intro">{intro}</p>}
+  {eyebrow && <p class="eyebrow" data-inline-edit={eyebrowEditKey}>{eyebrow}</p>}
+  <Heading id={id} data-inline-edit={titleEditKey}>{title}</Heading>
+  {intro && <p class="section-heading__intro" data-inline-edit={introEditKey}>{intro}</p>}
 </header>

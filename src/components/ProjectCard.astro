@@ -7,12 +7,13 @@ import { withBase } from '../utils/paths';
 interface Props {
   project: Project;
   priority?: boolean;
+  orderGroup?: string;
 }
 
-const { project, priority = false } = Astro.props;
+const { project, priority = false, orderGroup } = Astro.props;
 ---
 
-<article class="project-card">
+<article class="project-card" data-content-type="project" data-content-id={project.slug} data-order-group={orderGroup}>
   <a class="project-card__link" href={withBase(`/projects/${project.slug}/`)} aria-label={`View project: ${project.title}`}>
     <ResponsiveImage
       src={project.overviewImage}

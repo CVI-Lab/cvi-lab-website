@@ -1,0 +1,14 @@
+name: Full Name
+status: current
+category: masters
+role: MSc Student
+avatar: /images/people/person-avatar.png
+order: 100
+
+# Optional fields; delete the leading # when needed.
+# email: person@example.com
+# researchInterests: Computer vision and machine learning
+# currentPosition: Position after leaving the lab
+# currentOrganization: Organization name
+# location: City, Province, Country
+# link: https://example.com

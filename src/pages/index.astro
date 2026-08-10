@@ -6,27 +6,34 @@ import ProjectCard from '../components/ProjectCard.astro';
 import ResearchAreaCard from '../components/ResearchAreaCard.astro';
 import ResponsiveImage from '../components/ResponsiveImage.astro';
 import SectionHeading from '../components/SectionHeading.astro';
-import { projects } from '../data/projects';
+import { getProjects } from '../data/content';
+import { pageCopy } from '../data/page-copy';
 import { researchAreas } from '../data/research';
 import { site } from '../data/site';
 import { withBase } from '../utils/paths';
+
+const projects = await getProjects();
+const featuredProjects = projects
+  .filter((project) => project.featured)
+  .sort((a, b) => (b.featuredOrder ?? 0) - (a.featuredOrder ?? 0))
+  .slice(0, 3);
 ---
 
 <BaseLayout>
   <section class="hero section" aria-labelledby="hero-title">
     <div class="container hero__grid">
       <div class="hero__content">
-        <p class="eyebrow">{site.officialName}</p>
-        <h1 id="hero-title">{site.heroHeading}</h1>
-        <p class="hero__supporting">{site.positioning}</p>
+        <p class="eyebrow" data-inline-edit="site:officialName">{site.officialName}</p>
+        <h1 id="hero-title" data-inline-edit="site:heroHeading">{site.heroHeading}</h1>
+        <p class="hero__supporting" data-inline-edit="site:positioning">{site.positioning}</p>
         <div class="hero__actions">
-          <Button href={withBase('/projects/')}>Explore Our Projects</Button>
-          <Button href={withBase('/publications/')} variant="secondary">View Publications</Button>
+          <Button href={withBase('/projects/')}>{pageCopy.home.primaryAction}</Button>
+          <Button href={withBase('/publications/')} variant="secondary">{pageCopy.home.secondaryAction}</Button>
         </div>
         <dl class="hero__facts" aria-label="Lab facts">
-          <div><dt>Established</dt><dd>{site.established}</dd></div>
-          <div><dt>Based at</dt><dd>UBC Okanagan</dd></div>
-          <div><dt>Research themes</dt><dd>Three connected areas</dd></div>
+          <div><dt data-inline-edit="pages:home.establishedLabel">{pageCopy.home.establishedLabel}</dt><dd>{site.established}</dd></div>
+          <div><dt data-inline-edit="pages:home.basedAtLabel">{pageCopy.home.basedAtLabel}</dt><dd data-inline-edit="pages:home.basedAtValue">{pageCopy.home.basedAtValue}</dd></div>
+          <div><dt data-inline-edit="pages:home.themesLabel">{pageCopy.home.themesLabel}</dt><dd data-inline-edit="pages:home.themesValue">{pageCopy.home.themesValue}</dd></div>
         </dl>
       </div>
       <HeroVisual />
@@ -42,11 +49,11 @@ import { withBase } from '../utils/paths';
         placeholderLabel="CVI Lab group meeting image unavailable"
       />
       <div class="home-intro__content">
-        <p class="eyebrow">Who we are</p>
-        <h2 id="intro-title">Research at the Intersection of Vision and Intelligence</h2>
-        <p>{site.homepageIntroShort}</p>
+        <p class="eyebrow" data-inline-edit="pages:home.introEyebrow">{pageCopy.home.introEyebrow}</p>
+        <h2 id="intro-title" data-inline-edit="pages:home.introTitle">{pageCopy.home.introTitle}</h2>
+        <p data-inline-edit="site:homepageIntroShort">{site.homepageIntroShort}</p>
         <a class="text-link" href={withBase('/about/')}>
-          Learn more about the lab
+          {pageCopy.home.aboutLink}
           <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4.5 5.5 5.5L7 15.5M12 10H3.5" /></svg>
         </a>
       </div>
@@ -57,12 +64,15 @@ import { withBase } from '../utils/paths';
     <div class="container">
       <SectionHeading
         id="research-title"
-        eyebrow="Research themes"
-        title="Our Research"
-        intro="We investigate complementary areas of artificial intelligence that connect generative modelling, real-world perception, and responsible deployment."
+        eyebrow={pageCopy.home.researchEyebrow}
+        title={pageCopy.home.researchTitle}
+        intro={pageCopy.home.researchIntro}
+        eyebrowEditKey="pages:home.researchEyebrow"
+        titleEditKey="pages:home.researchTitle"
+        introEditKey="pages:home.researchIntro"
       />
       <div class="research-grid">
-        {researchAreas.map((area) => <ResearchAreaCard area={area} />)}
+        {researchAreas.map((area, index) => <ResearchAreaCard area={area} editPrefix={`research:${index}`} />)}
       </div>
     </div>
   </section>
@@ -72,22 +82,25 @@ import { withBase } from '../utils/paths';
       <div class="section-heading-row">
         <SectionHeading
           id="projects-title"
-          eyebrow="Selected work"
-          title="Featured Projects"
-          intro="Explore selected research projects from the CVI Lab."
+          eyebrow={pageCopy.home.projectsEyebrow}
+          title={pageCopy.home.projectsTitle}
+          intro={pageCopy.home.projectsIntro}
+          eyebrowEditKey="pages:home.projectsEyebrow"
+          titleEditKey="pages:home.projectsTitle"
+          introEditKey="pages:home.projectsIntro"
         />
         <a class="text-link text-link--desktop" href={withBase('/projects/')}>
-          View all projects
+          {pageCopy.home.projectsLink}
           <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4.5 5.5 5.5L7 15.5M12 10H3.5" /></svg>
         </a>
       </div>
       <div class="project-grid project-grid--featured">
-        {projects.filter((project) => project.featured).slice(0, 3).map((project, index) => (
-          <ProjectCard project={project} priority={index === 0} />
+        {featuredProjects.map((project, index) => (
+          <ProjectCard project={project} priority={index === 0} orderGroup="featured-project" />
         ))}
       </div>
       <a class="text-link text-link--mobile" href={withBase('/projects/')}>
-        View all projects
+        {pageCopy.home.projectsLink}
         <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4.5 5.5 5.5L7 15.5M12 10H3.5" /></svg>
       </a>
     </div>
@@ -100,11 +113,11 @@ import { withBase } from '../utils/paths';
           <span></span><span></span><span></span><span></span><span></span>
         </div>
         <div class="join-banner__content">
-          <p class="eyebrow">Opportunities + collaboration</p>
-          <h2 id="join-title">Join the CVI Lab</h2>
-          <p>{site.joinShort}</p>
+          <p class="eyebrow" data-inline-edit="pages:home.joinEyebrow">{pageCopy.home.joinEyebrow}</p>
+          <h2 id="join-title" data-inline-edit="pages:home.joinTitle">{pageCopy.home.joinTitle}</h2>
+          <p data-inline-edit="site:joinShort">{site.joinShort}</p>
         </div>
-        <Button href={withBase('/join/')}>Learn About Opportunities</Button>
+        <Button href={withBase('/join/')}>{pageCopy.home.joinAction}</Button>
       </div>
     </div>
   </section>

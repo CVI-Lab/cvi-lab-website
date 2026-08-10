@@ -1,0 +1,11 @@
+name: Dr. Shan Du
+status: current
+category: pi
+role: Assistant Professor, Computer Science · The University of British Columbia, Okanagan Campus
+avatar: /images/people/shan-du-avatar.png
+email: shan.du@ubc.ca
+biography:
+  - Dr. Shan Du received her PhD in Electrical and Computer Engineering from the University of British Columbia. She is an Assistant Professor of Computer Science at UBC’s Okanagan campus and leads the Laboratory for Computational Vision and Intelligence.
+  - Before joining UBC, she was an Assistant Professor in the Department of Computer Science at Lakehead University and worked as a Research Scientist and Software Engineer at IntelliView Technologies Inc. She has more than 15 years of research and development experience spanning image and video processing, computer vision and graphics, pattern recognition, machine learning, biometrics, and intelligent surveillance systems.
+research: Her research focuses on developing innovative technologies for challenging problems in computer vision, computer graphics, machine and deep learning, image and video processing, and multimodal intelligent systems. Her work combines foundational algorithm development with real-world applications in visual analysis, sensing, environmental monitoring, and related fields.
+order: 1

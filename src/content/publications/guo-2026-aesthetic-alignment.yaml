@@ -1,0 +1,23 @@
+title: "Position: Universal Aesthetic Alignment Narrows Artistic Expression"
+authors:
+  - Wenqi Marshall Guo
+  - Qingyun Qian
+  - Khalad Hasan
+  - Shan Du
+venue: International Conference on Machine Learning, Position Track
+venueShort: ICML
+year: 2026
+project: aesthetic-alignment
+links:
+  project: https://weathon.github.io/icml2026_position/
+  paper: https://openreview.net/forum?id=1gQ4zc1Q8I
+order: 6
+bibtex: |
+  @InProceedings{Guo_2026_AestheticAlignment,
+    author    = {Guo, Wenqi Marshall and Qian, Qingyun and Hasan, Khalad and Du, Shan},
+    title     = {Position: Universal Aesthetic Alignment Narrows Artistic Expression},
+    booktitle = {Proceedings of the 43rd International Conference on Machine Learning},
+    year      = {2026},
+    note      = {Position Track Spotlight},
+    url       = {https://openreview.net/forum?id=1gQ4zc1Q8I}
+  }

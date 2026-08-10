@@ -1,0 +1,25 @@
+title: "JVLGS: Joint Vision–Language Gas Leak Segmentation"
+authors:
+  - Xinlong Zhao
+  - Qixiang Pang
+  - Shan Du
+venue: The Visual Computer
+venueShort: TVC
+year: 2026
+pages: Article 428
+project: jvlgs
+links:
+  paper: https://doi.org/10.1007/s00371-026-04591-y
+  code: https://github.com/GeekEagle/JVLGS
+order: 2
+bibtex: |
+  @Article{Zhao_2026_JVLGS,
+    author  = {Zhao, Xinlong and Pang, Qixiang and Du, Shan},
+    title   = {JVLGS: Joint Vision--Language Gas Leak Segmentation},
+    journal = {The Visual Computer},
+    year    = {2026},
+    volume  = {42},
+    number  = {10},
+    article = {428},
+    doi     = {10.1007/s00371-026-04591-y}
+  }

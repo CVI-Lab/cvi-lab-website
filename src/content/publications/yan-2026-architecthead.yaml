@@ -1,0 +1,26 @@
+title: "ArchitectHead: Continuous Level of Detail Control for 3D Gaussian Head Avatars"
+authors:
+  - Peizhi Yan
+  - Rabab Ward
+  - Qiang Tang
+  - Shan Du
+venue: Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision
+venueShort: WACV
+year: 2026
+month: March
+pages: 1632–1642
+project: architecthead
+links:
+  project: https://yan.auroratns.com/docs/architect/index.html
+  paper: https://openaccess.thecvf.com/content/WACV2026/papers/Yan_ArchitectHead_Continuous_Level_of_Detail_Control_for_3D_Gaussian_Head_WACV_2026_paper.pdf
+  code: https://github.com/PeizhiYan/ArchitectHead
+order: 4
+bibtex: |
+  @InProceedings{Yan_2026_WACV,
+    author    = {Yan, Peizhi and Ward, Rabab and Tang, Qiang and Du, Shan},
+    title     = {ArchitectHead: Continuous Level of Detail Control for 3D Gaussian Head Avatars},
+    booktitle = {Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+    month     = {March},
+    year      = {2026},
+    pages     = {1632--1642}
+  }

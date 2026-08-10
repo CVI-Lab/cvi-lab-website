@@ -1,8 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PublicationEntry from '../components/PublicationEntry.astro';
-import { publications } from '../data/publications';
+import { getPublications } from '../data/content';
+import { pageCopy } from '../data/page-copy';
 
+const publications = await getPublications();
 const years = [...new Set(publications.map((publication) => publication.year))].sort((a, b) => b - a);
 ---
 
@@ -10,10 +12,10 @@ const years = [...new Set(publications.map((publication) => publication.year))].
   <section class="page-hero page-hero--compact">
     <div class="container page-hero__grid">
       <div>
-        <p class="eyebrow">Publications</p>
-        <h1>Research shared with the wider scientific community.</h1>
+        <p class="eyebrow" data-inline-edit="pages:publications.heroEyebrow">{pageCopy.publications.heroEyebrow}</p>
+        <h1 data-inline-edit="pages:publications.heroTitle">{pageCopy.publications.heroTitle}</h1>
       </div>
-      <p>Browse our publications in computer vision, computer graphics, multimodal perception, intelligent sensing, and trustworthy AI.</p>
+      <p data-inline-edit="pages:publications.heroIntro">{pageCopy.publications.heroIntro}</p>
     </div>
   </section>
 
@@ -24,7 +26,7 @@ const years = [...new Set(publications.map((publication) => publication.year))].
           <h2 id={`year-${year}`}>{year}</h2>
           <div class="publication-list">
             {publications.filter((publication) => publication.year === year).map((publication) => (
-              <PublicationEntry publication={publication} />
+              <PublicationEntry publication={publication} orderGroup={`publication:${year}`} />
             ))}
           </div>
         </section>

@@ -4,12 +4,13 @@ import ResponsiveImage from './ResponsiveImage.astro';
 
 interface Props {
   alumnus: Alumnus;
+  orderGroup?: string;
 }
 
-const { alumnus } = Astro.props;
+const { alumnus, orderGroup } = Astro.props;
 ---
 
-<article class="person-card person-card--alumnus">
+<article class="person-card person-card--alumnus" data-content-type="person" data-content-id={alumnus.id} data-order-group={orderGroup}>
   <ResponsiveImage
     src={alumnus.avatar}
     alt={`Illustrated portrait of ${alumnus.name}`}

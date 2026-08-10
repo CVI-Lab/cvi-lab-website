@@ -7,9 +7,10 @@ import { withBase } from '../utils/paths';
 interface Props {
   area: ResearchArea;
   expanded?: boolean;
+  editPrefix?: string;
 }
 
-const { area, expanded = false } = Astro.props;
+const { area, expanded = false, editPrefix } = Astro.props;
 ---
 
 <article id={expanded ? area.id : undefined} class:list={['research-card', `research-card--${area.accent}`, { 'research-card--expanded': expanded }]}>
@@ -17,10 +18,17 @@ const { area, expanded = false } = Astro.props;
     <p class="research-card__index">0{['mist', 'sage', 'sand'].indexOf(area.accent) + 1}</p>
     <ResearchVisual type={area.visual} />
   </div>
-  <h3>{area.name}</h3>
-  <p>{expanded ? area.extendedDescription : area.shortDescription}</p>
+  <h3 data-inline-edit={editPrefix ? `${editPrefix}.name` : undefined}>{area.name}</h3>
+  <p data-inline-edit={editPrefix ? `${editPrefix}.${expanded ? 'extendedDescription' : 'shortDescription'}` : undefined}>
+    {expanded ? area.extendedDescription : area.shortDescription}
+  </p>
   {expanded ? (
-    <div class="research-card__topics" aria-label={`Topics in ${area.name}`}>
+    <div
+      class="research-card__topics"
+      aria-label={`Topics in ${area.name}`}
+      data-inline-edit={editPrefix ? `${editPrefix}.topics` : undefined}
+      data-inline-format={editPrefix ? 'lines' : undefined}
+    >
       {area.topics.map((topic) => <Tag tone={area.accent}>{topic}</Tag>)}
     </div>
   ) : (
