@@ -15,7 +15,6 @@ const { area, expanded = false, editPrefix } = Astro.props;
 
 <article id={expanded ? area.id : undefined} class:list={['research-card', `research-card--${area.accent}`, { 'research-card--expanded': expanded }]}>
   <div class="research-card__top">
-    <p class="research-card__index">0{['mist', 'sage', 'sand'].indexOf(area.accent) + 1}</p>
     <ResearchVisual type={area.visual} />
   </div>
   <h3 data-inline-edit={editPrefix ? `${editPrefix}.name` : undefined}>{area.name}</h3>

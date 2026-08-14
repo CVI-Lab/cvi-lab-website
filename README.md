@@ -18,11 +18,13 @@ The deployed site needs no backend, database, CMS, runtime content API, or Pytho
 Use Node.js 22.12 or newer and npm 9.6.5 or newer.
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
 Astro serves the development site at `http://localhost:4321/` by default. If that port is unavailable, Astro prints the alternate local URL it selects.
+
+`npm ci` installs the exact dependency versions recorded in `package-lock.json`, keeping local and deployment environments reproducible. Use `npm install` only when intentionally adding or updating dependencies, and commit the resulting lockfile changes with `package.json`.
 
 ## Commands
 
