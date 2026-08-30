@@ -12,13 +12,12 @@ pages: 23944–23954
 project: trisim
 links:
   paper: https://openaccess.thecvf.com/content/CVPR2026/papers/Zheng_TriSim_Tri-Dimensional_Similarity_Modeling_with_Extreme_Value_Theory_for_False-Negative_CVPR_2026_paper.pdf
-order: 3
+order: 2
 bibtex: |
-  @InProceedings{Zheng_2026_CVPR,
-    author    = {Zheng, Chengyu and Lu, Hanzhang and Nie, Jie and Du, Shan},
-    title     = {TriSim: Tri-Dimensional Similarity Modeling with Extreme Value Theory for False-Negative Mitigation in Remote Sensing Image-Text Retrieval},
-    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-    month     = {June},
-    year      = {2026},
-    pages     = {23944--23954}
+  @inproceedings{zheng2026trisim,
+    title={TriSim: Tri-Dimensional Similarity Modeling with Extreme Value Theory for False-Negative Mitigation in Remote Sensing Image-Text Retrieval},
+    author={Zheng, Chengyu and Lu, Hanzhang and Nie, Jie and Du, Shan},
+    booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+    pages={23944--23954},
+    year={2026}
   }

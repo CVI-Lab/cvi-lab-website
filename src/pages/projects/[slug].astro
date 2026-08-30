@@ -62,7 +62,7 @@ const summaryHeadings = headings.filter((heading) => heading.depth === 2);
     </header>
 
     <div class="container project-detail__visual">
-      <ResponsiveImage src={project.overviewImage} alt={project.imageAlt} eager placeholderLabel="Project visual unavailable" />
+      <ResponsiveImage src={project.overviewImage} alt={project.imageAlt} eager class="project-overview-image" placeholderLabel="Project visual unavailable" />
       <p data-inline-project-id={project.slug} data-inline-project-field="imageCaption" data-inline-label="Image caption">{project.visualCaption}</p>
     </div>
 

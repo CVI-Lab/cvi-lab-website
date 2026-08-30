@@ -1,19 +1,19 @@
 ---
-title: Universal Aesthetic Alignment
-subtitle: Why a Single Notion of Beauty Narrows Artistic Expression
+title: "Position: Universal Aesthetic Alignment Narrows Artistic Expression"
+subtitle: How a single notion of beauty can override diverse artistic intent
 summary: A position paper and benchmark study showing how image generators and reward models can override requests for unconventional, abstract, or deliberately anti-aesthetic imagery.
 publication: guo-2026-aesthetic-alignment
 image:
-  src: https://weathon.github.io/icml2026_position/site/img/local/demo.jpg
-  alt: Examples of deliberately unconventional generated scenes used to study aesthetic alignment
-  caption: Wide-spectrum aesthetic examples from the official project page.
+  src: /images/projects/aesthetic-alignment.webp
+  alt: Paired anti-aesthetic and conventionally clean generated images with comparative reward scores
+  caption: Wide-spectrum aesthetic comparison supplied by the project author.
 tags:
   - Generative AI
   - AI Alignment
   - Aesthetic Diversity
 featured: true
 featuredOrder: 2
-order: 13
+order: 24
 ---
 
 ## I. Overview

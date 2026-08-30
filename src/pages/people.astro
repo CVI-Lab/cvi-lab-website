@@ -16,13 +16,42 @@ const {
   postdoctoralResearchers,
   principalInvestigator,
   undergraduateResearchers,
+  visitingScholars,
 } = await getPeople();
 
 const currentGroups = [
   { id: 'postdoc', title: pageCopy.people.postdocTitle, titleKey: 'pages:people.postdocTitle', people: postdoctoralResearchers },
+  { id: 'visiting', title: pageCopy.people.visitingTitle, titleKey: 'pages:people.visitingTitle', people: visitingScholars },
   { id: 'phd', title: pageCopy.people.phdTitle, titleKey: 'pages:people.phdTitle', people: phdStudents },
   { id: 'msc', title: pageCopy.people.mastersTitle, titleKey: 'pages:people.mastersTitle', people: mscStudents },
   { id: 'undergraduate', title: pageCopy.people.undergraduateTitle, titleKey: 'pages:people.undergraduateTitle', people: undergraduateResearchers },
+].filter((group) => group.people.length > 0);
+
+const alumniGroups = [
+  {
+    id: 'visiting-postdoc',
+    title: pageCopy.people.alumniVisitingPostdocTitle,
+    titleKey: 'pages:people.alumniVisitingPostdocTitle',
+    people: alumni.filter((person) => person.category === 'visiting' || person.category === 'postdoc'),
+  },
+  {
+    id: 'phd',
+    title: pageCopy.people.alumniPhdTitle,
+    titleKey: 'pages:people.alumniPhdTitle',
+    people: alumni.filter((person) => person.category === 'phd'),
+  },
+  {
+    id: 'masters',
+    title: pageCopy.people.alumniMastersTitle,
+    titleKey: 'pages:people.alumniMastersTitle',
+    people: alumni.filter((person) => person.category === 'masters'),
+  },
+  {
+    id: 'undergraduate',
+    title: pageCopy.people.alumniUndergraduateTitle,
+    titleKey: 'pages:people.alumniUndergraduateTitle',
+    people: alumni.filter((person) => person.category === 'undergraduate'),
+  },
 ].filter((group) => group.people.length > 0);
 ---
 
@@ -87,7 +116,16 @@ const currentGroups = [
           eyebrowEditKey="pages:people.alumniEyebrow"
           titleEditKey="pages:people.alumniTitle"
         />
-        <div class="people-grid people-grid--alumni">{alumni.map((person) => <AlumniCard alumnus={person} orderGroup={`person:alumni:${person.category}`} />)}</div>
+        <div class="alumni-groups">
+          {alumniGroups.map((group) => (
+            <section class="alumni-group" aria-labelledby={`alumni-${group.id}-title`}>
+              <h3 id={`alumni-${group.id}-title`} class="alumni-group__title" data-inline-edit={group.titleKey}>{group.title}</h3>
+              <div class="people-grid people-grid--alumni">
+                {group.people.map((person) => <AlumniCard alumnus={person} orderGroup={`person:alumni:${person.category}`} />)}
+              </div>
+            </section>
+          ))}
+        </div>
       </div>
     </section>
   )}

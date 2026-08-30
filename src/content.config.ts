@@ -38,7 +38,7 @@ const publications = defineCollection({
       paper: z.string().optional(),
       code: z.string().optional(),
     }).default({}),
-    bibtex: z.string(),
+    bibtex: z.string().default(''),
     order: z.number().int().positive().default(100),
     placeholderLabel: z.string().optional(),
   }),
@@ -49,7 +49,7 @@ const people = defineCollection({
   schema: z.object({
     name: z.string(),
     status: z.enum(['current', 'alumni']),
-    category: z.enum(['pi', 'postdoc', 'phd', 'masters', 'undergraduate']),
+    category: z.enum(['pi', 'postdoc', 'visiting', 'phd', 'masters', 'undergraduate']),
     role: z.string(),
     avatar: z.string(),
     order: z.number().int().positive().default(100),

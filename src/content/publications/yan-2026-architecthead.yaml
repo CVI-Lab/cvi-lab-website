@@ -14,7 +14,7 @@ links:
   project: https://yan.auroratns.com/docs/architect/index.html
   paper: https://openaccess.thecvf.com/content/WACV2026/papers/Yan_ArchitectHead_Continuous_Level_of_Detail_Control_for_3D_Gaussian_Head_WACV_2026_paper.pdf
   code: https://github.com/PeizhiYan/ArchitectHead
-order: 4
+order: 3
 bibtex: |
   @InProceedings{Yan_2026_WACV,
     author    = {Yan, Peizhi and Ward, Rabab and Tang, Qiang and Du, Shan},

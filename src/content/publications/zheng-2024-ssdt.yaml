@@ -1,0 +1,26 @@
+title: "SSDT: Scale-Separation Semantic Decoupled Transformer for Semantic Segmentation of Remote Sensing Images"
+authors:
+  - Chengyu Zheng
+  - Yanru Jiang
+  - Xiaowei Lv
+  - Jie Nie
+  - Xinyue Liang
+  - Zhiqiang Wei
+venue: IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing
+venueShort: JSTARS
+year: 2024
+month: April
+pages: 9037–9052
+project: ssdt
+links: {}
+bibtex: |
+  @article{zheng2024ssdt,
+    title={SSDT: Scale-separation semantic decoupled transformer for semantic segmentation of remote sensing images},
+    author={Zheng, Chengyu and Jiang, Yanru and Lv, Xiaowei and Nie, Jie and Liang, Xinyue and Wei, Zhiqiang},
+    journal={IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing},
+    volume={17},
+    pages={9037--9052},
+    year={2024},
+    publisher={IEEE}
+  }
+order: 2

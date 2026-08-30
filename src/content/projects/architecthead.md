@@ -1,19 +1,19 @@
 ---
-title: ArchitectHead
-subtitle: Continuous Level of Detail Control for 3D Gaussian Head Avatars
+title: "ArchitectHead: Continuous Level of Detail Control for 3D Gaussian Head Avatars"
+subtitle: Continuously adjustable rendering detail from one trained head avatar
 summary: A 3D Gaussian head-avatar framework with continuous level-of-detail control, balancing visual quality against rendering cost without retraining.
 publication: yan-2026-architecthead
 image:
-  src: https://yan.auroratns.com/docs/architect/teaser.png
-  alt: ArchitectHead teaser comparing head-avatar renderings across levels of detail
-  caption: ArchitectHead renderings across continuously adjustable levels of detail. Image from the official project page.
+  src: /images/projects/architecthead.webp
+  alt: ArchitectHead architecture using multi-level UV features to generate head avatars at adjustable levels of detail
+  caption: ArchitectHead method overview supplied by the project author.
 tags:
   - 3D Vision
   - Gaussian Splatting
   - Head Avatars
 featured: true
 featuredOrder: 1
-order: 11
+order: 20
 ---
 
 ## I. Overview

@@ -17,6 +17,7 @@
     "Canada"
   ],
   "domain": "https://cvi-lab.project-aris.io",
+  "githubOrganization": "https://github.com/CVI-Lab",
   "positioning": "We develop generative, multimodal, and trustworthy AI systems that perceive, model, and understand complex visual environments.",
   "heroHeading": "Advancing Generative Vision, Multimodal Perception, and Trustworthy AI",
   "homepageIntroduction": "The Laboratory for Computational Vision and Intelligence at the University of British Columbia develops advanced artificial-intelligence methods for visual computing, multimodal perception, and intelligent sensing. Our research spans generative 3D modelling, image and video understanding, multimodal learning, and trustworthy AI, connecting foundational machine-learning research with challenging real-world applications.",

@@ -1,6 +1,6 @@
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
-import type { Alumnus, Person, Project, Publication } from './types';
+import type { Alumnus, Person, PersonCategory, Project, Publication } from './types';
 
 export async function getPublications(): Promise<Publication[]> {
   const entries = await getCollection('publications');
@@ -68,9 +68,10 @@ export async function getProjects(): Promise<Project[]> {
 
 const currentCategoryOrder = new Map([
   ['postdoc', 0],
-  ['phd', 1],
-  ['masters', 2],
-  ['undergraduate', 3],
+  ['visiting', 1],
+  ['phd', 2],
+  ['masters', 3],
+  ['undergraduate', 4],
 ]);
 
 const toPerson = ({ id, data }: CollectionEntry<'people'>): Person => ({
@@ -119,7 +120,7 @@ export async function getPeople() {
       link: data.link,
     }));
 
-  const currentByCategory = (category: 'postdoc' | 'phd' | 'masters' | 'undergraduate') => current
+  const currentByCategory = (category: Exclude<PersonCategory, 'pi'>) => current
     .filter(({ data }) => data.category === category)
     .map(toPerson);
 
@@ -128,6 +129,7 @@ export async function getPeople() {
     piBiography: piEntry.data.biography ?? [],
     piResearch: piEntry.data.research ?? '',
     postdoctoralResearchers: currentByCategory('postdoc'),
+    visitingScholars: currentByCategory('visiting'),
     phdStudents: currentByCategory('phd'),
     mscStudents: currentByCategory('masters'),
     undergraduateResearchers: currentByCategory('undergraduate'),

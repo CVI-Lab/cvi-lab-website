@@ -51,11 +51,16 @@
     "contactAction": "Contact Dr. Du",
     "currentEyebrow": "Current members",
     "postdocTitle": "Postdoctoral Researchers",
+    "visitingTitle": "Visiting Scholars",
     "phdTitle": "PhD Students",
     "mastersTitle": "MSc Students",
     "undergraduateTitle": "Undergraduate Researchers",
     "alumniEyebrow": "Former members",
-    "alumniTitle": "Alumni"
+    "alumniTitle": "Alumni",
+    "alumniVisitingPostdocTitle": "Visiting Scholars & Postdoctoral Fellows",
+    "alumniPhdTitle": "PhD Students",
+    "alumniMastersTitle": "Master’s Students",
+    "alumniUndergraduateTitle": "Bachelor’s Students"
   },
   "projects": {
     "heroEyebrow": "Projects",
@@ -119,7 +124,7 @@
     "navigateTitle": "Navigate",
     "connectTitle": "Connect",
     "ubcLink": "The University of British Columbia ↗",
-    "githubPlaceholder": "GitHub organization link forthcoming.",
+    "githubLink": "CVI Lab on GitHub ↗",
     "builtNote": "Built for clarity, access, and ongoing research."
   },
   "notFound": {

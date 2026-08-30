@@ -10,18 +10,19 @@ authors:
 venue: IEEE Transactions on Multimedia
 venueShort: TMM
 year: 2025
+month: January
 pages: 3966–3978
 project: cppmn
 links:
   paper: https://doi.org/10.1109/TMM.2025.3535365
 order: 1
 bibtex: |
-  @Article{Zheng_2025_CPPMN,
-    author  = {Zheng, Chengyu and Li, Xiu and Liang, Xinyue and Huang, Lei and Du, Shan and Nie, Jie and Dong, Junyu},
-    title   = {Cross-Modal Progressive Perspective Matching Network for Remote Sensing Image-Text Retrieval},
-    journal = {IEEE Transactions on Multimedia},
-    year    = {2025},
-    volume  = {27},
-    pages   = {3966--3978},
-    doi     = {10.1109/TMM.2025.3535365}
+  @article{zheng2025cross,
+    title={Cross-modal progressive perspective matching network for remote sensing image-text retrieval},
+    author={Zheng, Chengyu and Li, Xiu and Liang, Xinyue and Huang, Lei and Du, Shan and Nie, Jie and Dong, Junyu},
+    journal={IEEE Transactions on Multimedia},
+    volume={27},
+    pages={3966--3978},
+    year={2025},
+    publisher={IEEE}
   }

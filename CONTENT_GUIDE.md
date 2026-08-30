@@ -37,7 +37,7 @@ npm run edit -- --public-origin https://dev.example.com --base /editor-path
 
 Then open the matching public URL. The editor still listens only on this machine's loopback interface; `cloudflared` connects to `http://localhost:44321`. Keep the entire editor path tree protected by the same Access policy because its pages, assets, WebSocket connection, and save API all use that prefix.
 
-For a new project, create its publication in the Publications tab first. Then create the project and select that publication by title in the guided form. Image files still need to be copied into `public/images/` separately; enter their public path in the editor.
+For a new project, create its publication in the Publications tab first. Then create the project and select that publication by title in the guided form. The editor automatically adds the project backlink to the publication; the publication panel displays this managed field as read-only. If the project is later assigned to another publication, the old backlink is removed and the new one is added. Image files still need to be copied into `public/images/` separately; enter their public path in the editor.
 
 After editing, stop the server with `Ctrl+C`, then validate everything with:
 
@@ -65,9 +65,9 @@ npm run content:new -- publication author-2026-short-name
 Edit the new file under `src/content/publications/`. The filename becomes the publication ID. Important fields are:
 
 - `title`, `authors`, `venue`, `venueShort`, and `year` for the publication list;
-- `project` for the related project filename, without `.md`;
+- `project` for the related project filename, without `.md`; the visual editor manages this field from the project entry;
 - `links.paper`, `links.project`, and `links.code`; delete links that do not exist;
-- `bibtex`, kept as an indented YAML block after `bibtex: |`;
+- `bibtex`, normally kept as an indented YAML block after `bibtex: |`; it may remain empty for a newly accepted paper until its citation is finalized;
 - `order`, which controls ordering among publications from the same year. Larger numbers appear first; the visual editor manages this value when cards are dragged.
 
 A publication can exist without a project: delete its `project` field in that case.
@@ -89,6 +89,8 @@ Edit `src/content/projects/project-slug.md`:
 - `tags` are the labels displayed on the project card.
 - `order` controls the project-list order. Larger numbers appear first; the visual editor manages this value when cards are dragged.
 - Everything below the second `---` is ordinary Markdown used on the project-detail page.
+
+When editing files manually, also set the matching publication's `project` field to this project filename. The visual editor performs this reciprocal update automatically.
 
 Project-detail Markdown supports LaTeX formulas. Use `$E = mc^2$` inside a sentence and place display formulas between `$$` delimiters:
 
@@ -155,7 +157,7 @@ avatar: /images/people/person-avatar.png
 order: 100
 ```
 
-Allowed `category` values are `pi`, `postdoc`, `phd`, `masters`, and `undergraduate`. Allowed `status` values are `current` and `alumni`.
+Allowed `category` values are `pi`, `postdoc`, `visiting`, `phd`, `masters`, and `undergraduate`. Allowed `status` values are `current` and `alumni`. The People page shows the Visiting Scholars section only when at least one current person uses `category: visiting`.
 
 ### Move a graduating student to alumni
 
@@ -169,7 +171,7 @@ currentPosition: Optional new position
 currentOrganization: Optional organization
 ```
 
-The person automatically leaves the current-student section and appears in Alumni. Alumni are automatically ordered by category: postdoctoral, PhD, master's, then undergraduate. The `order` field controls ordering within each category, with larger numbers first; the visual editor manages it when cards are dragged.
+The person automatically leaves the current-member section and appears in the corresponding Alumni subsection. Alumni are grouped as visiting/postdoctoral, PhD, master’s, and bachelor’s, and ordered within each category using the `order` field. Larger numbers appear first; the visual editor manages this value when cards are dragged.
 
 To edit a current title or degree, change only `role`. To replace an avatar, put the image in `public/images/people/` and update `avatar` with its `/images/people/...` public path.
 

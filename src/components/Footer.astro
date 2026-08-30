@@ -53,7 +53,7 @@ const footerLinks = navigation.filter((item) => item.href !== '/' && item.label 
         <h2 data-inline-edit="pages:footer.connectTitle">{pageCopy.footer.connectTitle}</h2>
         <a class="site-footer__email" href={`mailto:${site.email}`}>{site.email}</a>
         <a href="https://www.ubc.ca/" target="_blank" rel="noreferrer">{pageCopy.footer.ubcLink}</a>
-        <p class="site-footer__placeholder" data-inline-edit="pages:footer.githubPlaceholder">{pageCopy.footer.githubPlaceholder}</p>
+        <a href={site.githubOrganization} target="_blank" rel="noreferrer">{pageCopy.footer.githubLink}</a>
       </div>
     </div>
 

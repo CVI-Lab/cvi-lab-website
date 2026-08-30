@@ -1,0 +1,27 @@
+title: Scale–Relation Joint Decoupling Network for Remote Sensing Image Semantic Segmentation
+authors:
+  - Jie Nie
+  - Chengyu Zheng
+  - Chenglong Wang
+  - Zijie Zuo
+  - Xiaowei Lv
+  - Shusong Yu
+  - Zhiqiang Wei
+venue: IEEE Transactions on Geoscience and Remote Sensing
+venueShort: TGRS
+year: 2022
+month: November
+pages: 1–12
+project: scale-relation-joint-decoupling
+links: {}
+bibtex: |
+  @article{nie2022scale,
+    title={Scale--relation joint decoupling network for remote sensing image semantic segmentation},
+    author={Nie, Jie and Zheng, Chengyu and Wang, Chenglong and Zuo, Zijie and Lv, Xiaowei and Yu, Shusong and Wei, Zhiqiang},
+    journal={IEEE Transactions on Geoscience and Remote Sensing},
+    volume={60},
+    pages={1--12},
+    year={2022},
+    publisher={IEEE}
+  }
+order: 2

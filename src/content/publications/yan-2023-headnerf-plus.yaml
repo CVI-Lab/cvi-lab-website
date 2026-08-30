@@ -15,11 +15,11 @@ links:
   paper: https://doi.org/10.1109/ICIP49359.2023.10222432
 order: 1
 bibtex: |
-  @InProceedings{Yan_2023_HeadNeRF,
-    author    = {Yan, Peizhi and Ward, Rabab and Wang, Dan and Tang, Qiang and Du, Shan},
-    title     = {Learning Disentangled Features for NeRF-Based Face Reconstruction},
-    booktitle = {2023 IEEE International Conference on Image Processing (ICIP)},
-    year      = {2023},
-    pages     = {1135--1139},
-    doi       = {10.1109/ICIP49359.2023.10222432}
+  @inproceedings{yan2023learning,
+    title={Learning disentangled features for NERF-based face reconstruction},
+    author={Yan, Peizhi and Ward, Rabab and Wang, Dan and Tang, Qiang and Du, Shan},
+    booktitle={2023 IEEE International Conference on Image Processing (ICIP)},
+    pages={1135--1139},
+    year={2023},
+    organization={IEEE}
   }

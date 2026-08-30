@@ -325,9 +325,9 @@ async function listItems(type) {
     if (type === 'publication') return (b.year ?? 0) - (a.year ?? 0) || b.order - a.order;
     if (type === 'person') {
       const statusRank = { current: 0, alumni: 1 };
-      const categoryRank = { pi: 0, postdoc: 1, phd: 2, masters: 3, undergraduate: 4 };
+      const categoryRank = { pi: 0, postdoc: 1, visiting: 2, phd: 3, masters: 4, undergraduate: 5 };
       return (statusRank[a.status] ?? 2) - (statusRank[b.status] ?? 2)
-        || (categoryRank[a.category] ?? 5) - (categoryRank[b.category] ?? 5)
+        || (categoryRank[a.category] ?? 6) - (categoryRank[b.category] ?? 6)
         || b.order - a.order
         || a.title.localeCompare(b.title);
     }
@@ -362,13 +362,16 @@ async function validateItem(type, data, body) {
       throw new Error(`Linked publication "${data.publication}" does not exist.`);
     }
   } else if (type === 'publication') {
-    for (const field of ['title', 'venue', 'bibtex']) requireText(data, field);
+    for (const field of ['title', 'venue']) requireText(data, field);
+    if (data.bibtex != null && typeof data.bibtex !== 'string') {
+      throw new Error('BibTeX must be text when provided.');
+    }
     if (!Array.isArray(data.authors) || data.authors.length === 0) throw new Error('At least one author is required.');
     if (!Number.isInteger(data.year)) throw new Error('Publication year must be a whole number.');
   } else if (type === 'person') {
     for (const field of ['name', 'role', 'avatar']) requireText(data, field);
     if (!['current', 'alumni'].includes(data.status)) throw new Error('Person status must be current or alumni.');
-    if (!['pi', 'postdoc', 'phd', 'masters', 'undergraduate'].includes(data.category)) {
+    if (!['pi', 'postdoc', 'visiting', 'phd', 'masters', 'undergraduate'].includes(data.category)) {
       throw new Error('Person category is invalid.');
     }
   } else {
@@ -405,6 +408,58 @@ async function nextFeaturedOrder(excludedId) {
   return maximum + 1;
 }
 
+async function assertPublicationCanLinkToProject(publicationId, projectId) {
+  const publication = await readItem('publication', publicationId);
+  if (publication.data.project && publication.data.project !== projectId) {
+    throw conflictError(
+      `Publication "${publication.data.title}" is already linked to project "${publication.data.project}".`,
+    );
+  }
+  return publication;
+}
+
+async function synchronizeProjectPublication(projectId, publicationId, previousPublicationId) {
+  const publication = await assertPublicationCanLinkToProject(publicationId, projectId);
+  const changes = [];
+
+  if (previousPublicationId && previousPublicationId !== publicationId) {
+    const previousPublication = await readItem('publication', previousPublicationId);
+    if (previousPublication.data.project === projectId) {
+      changes.push({
+        item: previousPublication,
+        before: { ...previousPublication.data },
+        after: { ...previousPublication.data },
+      });
+      delete changes.at(-1).after.project;
+    }
+  }
+
+  if (publication.data.project !== projectId) {
+    changes.push({
+      item: publication,
+      before: { ...publication.data },
+      after: { ...publication.data, project: projectId },
+    });
+  }
+
+  const completed = [];
+  try {
+    for (const change of changes) {
+      await saveItem('publication', change.item.id, change.after, change.item.body);
+      completed.push(change);
+    }
+  } catch (error) {
+    for (const change of completed.reverse()) {
+      try {
+        await saveItem('publication', change.item.id, change.before, change.item.body);
+      } catch {
+        // Preserve the original synchronization error; editor backups retain both versions.
+      }
+    }
+    throw error;
+  }
+}
+
 async function saveItem(type, id, data, body) {
   const filePath = getItemPath(type, id);
   if (!filePath) throw new Error('Invalid content type or item ID.');
@@ -423,6 +478,7 @@ async function saveItem(type, id, data, body) {
     }
   }
   await validateItem(type, data, body);
+  if (type === 'project') await assertPublicationCanLinkToProject(data.publication, id);
 
   const source = serializeItem(type, data, body);
 
@@ -437,6 +493,15 @@ async function saveItem(type, id, data, body) {
   const temporaryPath = `${filePath}.tmp-${process.pid}-${Date.now()}`;
   await writeFile(temporaryPath, source, 'utf8');
   await rename(temporaryPath, filePath);
+
+  if (type === 'project') {
+    try {
+      await synchronizeProjectPublication(id, data.publication, previous.data.publication);
+    } catch (error) {
+      await copyFile(backupPath, filePath);
+      throw error;
+    }
+  }
 
   return relative(root, backupPath);
 }
@@ -479,8 +544,19 @@ async function createItem(type, id, seed = {}) {
   parsed.data.order = await nextScopedOrder(type, parsed.data);
 
   await validateItem(type, parsed.data, parsed.body);
+  if (type === 'project') await assertPublicationCanLinkToProject(parsed.data.publication, id);
   await mkdir(dirname(filePath), { recursive: true });
   await writeFile(filePath, serializeItem(type, parsed.data, parsed.body), { encoding: 'utf8', flag: 'wx' });
+  if (type === 'project') {
+    try {
+      await synchronizeProjectPublication(id, parsed.data.publication);
+    } catch (error) {
+      const recoveryDirectory = join(root, 'tmp/content-backups/editor/failed-creates');
+      await mkdir(recoveryDirectory, { recursive: true });
+      await rename(filePath, join(recoveryDirectory, `${id}-${Date.now()}${definition.extension}`));
+      throw error;
+    }
+  }
   return readItem(type, id);
 }
 
@@ -722,6 +798,9 @@ function proxyToAstro(request, response) {
     path: request.url,
     headers,
   }, (proxyResponse) => {
+    proxyResponse.on('error', () => {
+      if (!response.destroyed) response.destroy();
+    });
     const contentType = String(proxyResponse.headers['content-type'] ?? '');
     const isHtml = contentType.includes('text/html');
     const isDevelopmentText = editorBase && (
@@ -737,6 +816,7 @@ function proxyToAstro(request, response) {
     const chunks = [];
     proxyResponse.on('data', (chunk) => chunks.push(chunk));
     proxyResponse.on('end', () => {
+      if (response.destroyed) return;
       let output = prefixDevelopmentUrls(Buffer.concat(chunks).toString('utf8'));
       if (isHtml) {
         output = output.replace(
@@ -758,10 +838,17 @@ function proxyToAstro(request, response) {
     });
   });
   proxyRequest.on('error', () => {
+    if (response.destroyed) return;
     if (!response.headersSent) {
       response.writeHead(503, { 'Content-Type': 'text/plain; charset=utf-8', 'Retry-After': '1' });
     }
     response.end('The Astro development server is starting. Reload this page in a moment.');
+  });
+  request.on('error', () => proxyRequest.destroy());
+  request.on('aborted', () => proxyRequest.destroy());
+  response.on('error', () => proxyRequest.destroy());
+  response.on('close', () => {
+    if (!response.writableEnded) proxyRequest.destroy();
   });
   request.pipe(proxyRequest);
 }
@@ -775,6 +862,10 @@ const server = createServer(async (request, response) => {
 
 server.on('upgrade', (request, socket, head) => {
   const upstream = connectSocket(astroPort, editorHost, () => {
+    if (socket.destroyed) {
+      upstream.destroy();
+      return;
+    }
     const headerLines = [];
     for (let index = 0; index < request.rawHeaders.length; index += 2) {
       if (request.rawHeaders[index].toLowerCase() === 'host') continue;
@@ -786,7 +877,20 @@ server.on('upgrade', (request, socket, head) => {
     if (head.length) upstream.write(head);
     socket.pipe(upstream).pipe(socket);
   });
-  upstream.on('error', () => socket.destroy());
+
+  const closeBothSockets = () => {
+    if (!socket.destroyed) socket.destroy();
+    if (!upstream.destroyed) upstream.destroy();
+  };
+
+  socket.on('error', closeBothSockets);
+  upstream.on('error', closeBothSockets);
+  socket.on('close', () => {
+    if (!upstream.destroyed) upstream.destroy();
+  });
+  upstream.on('close', () => {
+    if (!socket.destroyed) socket.destroy();
+  });
 });
 
 let shuttingDown = false;

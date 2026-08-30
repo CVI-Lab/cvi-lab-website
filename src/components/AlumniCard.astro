@@ -14,7 +14,7 @@ const { alumnus, orderGroup } = Astro.props;
   <ResponsiveImage
     src={alumnus.avatar}
     alt={`Illustrated portrait of ${alumnus.name}`}
-    aspect="square"
+    aspect="portrait"
     placeholderLabel="Alumni portrait unavailable"
   />
   <div class="person-card__body">
@@ -22,7 +22,7 @@ const { alumnus, orderGroup } = Astro.props;
     <p class="person-card__role">{alumnus.formerRole}</p>
     {(alumnus.currentPosition || alumnus.currentOrganization) && (
       <p class="person-card__current">
-        {alumnus.currentPosition}{alumnus.currentPosition && alumnus.currentOrganization ? ' · ' : ''}{alumnus.currentOrganization}
+        {alumnus.currentPosition}{alumnus.currentPosition && alumnus.currentOrganization ? ' @ ' : ''}{alumnus.currentOrganization}
       </p>
     )}
     {alumnus.location && <p class="person-card__location">{alumnus.location}</p>}

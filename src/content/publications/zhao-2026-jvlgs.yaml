@@ -9,11 +9,11 @@ year: 2026
 pages: Article 428
 project: jvlgs
 links:
-  paper: https://doi.org/10.1007/s00371-026-04591-y
+  paper: https://link.springer.com/article/10.1007/s00371-026-04591-y
   code: https://github.com/GeekEagle/JVLGS
-order: 2
+order: 1
 bibtex: |
-  @Article{Zhao_2026_JVLGS,
+  @article{Zhao2026JVLGS,
     author  = {Zhao, Xinlong and Pang, Qixiang and Du, Shan},
     title   = {JVLGS: Joint Vision--Language Gas Leak Segmentation},
     journal = {The Visual Computer},
@@ -21,5 +21,6 @@ bibtex: |
     volume  = {42},
     number  = {10},
     article = {428},
-    doi     = {10.1007/s00371-026-04591-y}
+    doi     = {10.1007/s00371-026-04591-y},
+    url     = {https://doi.org/10.1007/s00371-026-04591-y}
   }

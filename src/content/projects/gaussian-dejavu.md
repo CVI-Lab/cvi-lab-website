@@ -1,18 +1,18 @@
 ---
-title: Gaussian Deja-vu
-subtitle: Controllable 3D Gaussian Head Avatars with Enhanced Generalization and Personalization
+title: "Gaussian Deja-vu: Creating Controllable 3D Gaussian Head-Avatars with Enhanced Generalization and Personalization Abilities"
+subtitle: Fast personalization of controllable 3D Gaussian head avatars
 summary: A 3D Gaussian head-avatar method designed to accelerate personalization while improving controllability and photorealistic rendering.
 publication: yan-2025-gaussian-dejavu
 image:
-  src: https://yan.auroratns.com/docs/dejavu/teaser.png
-  alt: Gaussian Deja-vu controllable head-avatar examples
-  caption: Controllable avatar examples from the official Gaussian Deja-vu project page.
+  src: /images/projects/gaussian-dejavu.webp
+  alt: Gaussian Deja-vu pipeline for reconstructing and personalizing controllable 3D Gaussian head avatars
+  caption: Gaussian Deja-vu method overview supplied by the project author.
 tags:
   - Gaussian Splatting
   - Head Avatars
   - Neural Rendering
 featured: false
-order: 6
+order: 15
 ---
 
 ## I. Overview

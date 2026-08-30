@@ -1,18 +1,18 @@
 ---
-title: NEO-3DF
-subtitle: Novel Editing-Oriented 3D Face Creation and Reconstruction
+title: "NEO-3DF: Novel Editing-Oriented 3D Face Creation and Reconstruction"
+subtitle: Semantic part-based reconstruction with intuitive local shape editing
 summary: A semantic part-based face model that makes reconstructed 3D faces locally editable while improving their alignment to a source image.
 publication: yan-2022-neo-3df
 image:
-  src: https://yan.auroratns.com/docs/neo3df/resources/teaser.png
-  alt: NEO-3DF face reconstruction and local editing examples
-  caption: NEO-3DF reconstruction and editing overview from the official project page.
+  src: /images/projects/neo-3df.webp
+  alt: NEO-3DF interface showing reconstructed faces and semantic local shape-editing controls
+  caption: NEO-3DF reconstruction and editing overview supplied by the project author.
 tags:
   - 3D Faces
   - Reconstruction
   - Shape Editing
 featured: false
-order: 1
+order: 4
 ---
 
 ## I. Overview

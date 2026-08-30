@@ -1,0 +1,26 @@
+title: Frequency- and Spatial-Domain Saliency Network for Remote Sensing Cross-Modal Retrieval
+authors:
+  - Chengyu Zheng
+  - Jie Nie
+  - Bo Yin
+  - Xiu Li
+  - Yuntao Qian
+  - Zhiqiang Wei
+venue: IEEE Transactions on Geoscience and Remote Sensing
+venueShort: TGRS
+year: 2025
+month: April
+pages: 1–13
+project: frequency-spatial-saliency
+links: {}
+bibtex: |
+  @article{zheng2025frequency,
+    title={Frequency-and spatial-domain saliency network for remote sensing cross-modal retrieval},
+    author={Zheng, Chengyu and Nie, Jie and Yin, Bo and Li, Xiu and Qian, Yuntao and Wei, Zhiqiang},
+    journal={IEEE Transactions on Geoscience and Remote Sensing},
+    volume={63},
+    pages={1--13},
+    year={2025},
+    publisher={IEEE}
+  }
+order: 9

@@ -1,18 +1,18 @@
 ---
-title: LangGas
-subtitle: Language-Guided Zero-Shot Gas-Leak Segmentation with SimGas
+title: "LangGas: Introducing Language in Selective Zero-Shot Background Subtraction for Semi-Transparent Gas Leak Detection with a New Dataset"
+subtitle: Language-guided zero-shot gas-leak segmentation with SimGas
 summary: A zero-shot gas-leak detection pipeline and synthetic benchmark that combine background subtraction, language-guided object filtering, and promptable segmentation.
 publication: guo-2025-langgas
 image:
-  src: https://github.com/user-attachments/assets/02debfe3-7da5-47e3-8720-d70cf3aee802
-  alt: LangGas pipeline combining video background subtraction, text prompts, object filtering, and segmentation
-  caption: Method overview from the official LangGas repository.
+  src: /images/projects/langgas.webp
+  alt: LangGas pipeline combining video background subtraction, text-guided object filtering, and gas-plume segmentation
+  caption: LangGas method overview supplied by the project author.
 tags:
   - Zero-Shot Segmentation
   - Vision–Language
   - Gas Leak Detection
 featured: false
-order: 9
+order: 16
 ---
 
 ## I. Overview

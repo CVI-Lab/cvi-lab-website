@@ -1,0 +1,26 @@
+title: High-Order Semantic Decoupling Network for Remote Sensing Image Semantic Segmentation
+authors:
+  - Chengyu Zheng
+  - Jie Nie
+  - Zhaoxin Wang
+  - Ning Song
+  - Jingyu Wang
+  - Zhiqiang Wei
+venue: IEEE Transactions on Geoscience and Remote Sensing
+venueShort: TGRS
+year: 2023
+month: February
+pages: 1–15
+project: high-order-semantic-decoupling
+links: {}
+bibtex: |
+  @article{zheng2023high,
+    title={High-order semantic decoupling network for remote sensing image semantic segmentation},
+    author={Zheng, Chengyu and Nie, Jie and Wang, Zhaoxin and Song, Ning and Wang, Jingyu and Wei, Zhiqiang},
+    journal={IEEE Transactions on Geoscience and Remote Sensing},
+    volume={61},
+    pages={1--15},
+    year={2023},
+    publisher={IEEE}
+  }
+order: 4

@@ -1,0 +1,27 @@
+title: Scale–Semantic Joint Decoupling Network for Image-Text Retrieval in Remote Sensing
+authors:
+  - Chengyu Zheng
+  - Ning Song
+  - Ruoyu Zhang
+  - Lei Huang
+  - Zhiqiang Wei
+  - Jie Nie
+venue: ACM Transactions on Multimedia Computing, Communications, and Applications
+venueShort: TOMM
+year: 2023
+month: August
+pages: 1–20
+project: scale-semantic-joint-decoupling
+links: {}
+bibtex: |
+  @article{zheng2023scale,
+    title={Scale-semantic joint decoupling network for image-text retrieval in remote sensing},
+    author={Zheng, Chengyu and Song, Ning and Zhang, Ruoyu and Huang, Lei and Wei, Zhiqiang and Nie, Jie},
+    journal={ACM Transactions on Multimedia Computing, Communications and Applications},
+    volume={20},
+    number={1},
+    pages={1--20},
+    year={2023},
+    publisher={ACM New York, NY}
+  }
+order: 3

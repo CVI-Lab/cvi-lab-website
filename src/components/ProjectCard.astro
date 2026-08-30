@@ -19,6 +19,7 @@ const { project, priority = false, orderGroup } = Astro.props;
       src={project.overviewImage}
       alt={project.imageAlt}
       eager={priority}
+      class="project-overview-image"
       placeholderLabel="Project image unavailable"
     />
     <div class="project-card__body">

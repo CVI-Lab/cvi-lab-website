@@ -25,10 +25,12 @@ export type Person = {
   links?: LinkItem[];
 };
 
+export type PersonCategory = 'pi' | 'postdoc' | 'visiting' | 'phd' | 'masters' | 'undergraduate';
+
 export type Alumnus = {
   id: string;
   name: string;
-  category: 'pi' | 'postdoc' | 'phd' | 'masters' | 'undergraduate';
+  category: PersonCategory;
   formerRole: string;
   avatar: string;
   currentPosition?: string;

@@ -25,7 +25,7 @@ const resolvedTitleHref = titleHref ? withBase(titleHref) : undefined;
       {publication.authors.join(', ')}. <span>{publication.venue}</span>{publication.pages ? `, ${publication.pages}` : ''}.
     </p>
     <div class="publication-entry__actions">
-      <BibTeXBlock bibtex={publication.bibtex} />
+      {publication.bibtex.trim() && <BibTeXBlock bibtex={publication.bibtex} inline />}
       {publication.projectSlug && <a href={withBase(`/projects/${publication.projectSlug}/`)}>Project</a>}
       {publication.paperUrl && <a href={publication.paperUrl} target="_blank" rel="noreferrer">Paper ↗</a>}
       {publication.codeUrl && <a href={publication.codeUrl} target="_blank" rel="noreferrer">Code ↗</a>}

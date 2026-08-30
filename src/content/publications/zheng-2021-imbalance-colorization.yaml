@@ -1,0 +1,25 @@
+title: Imbalance Satellite Image Colorization with Semantic Salience Priors
+authors:
+  - Chengyu Zheng
+  - Yu Fu
+  - Zian Zhao
+  - Chenglong Wang
+  - Jie Nie
+venue: Twelfth International Conference on Graphics and Image Processing
+venueShort: ICGIP
+year: 2021
+month: February
+pages: 546–552
+project: satellite-image-colorization
+links: {}
+bibtex: |
+  @inproceedings{zheng2021imbalance,
+    title={Imbalance satellite image colorization with semantic salience priors},
+    author={Zheng, Chengyu and Fu, Yu and Zhao, Zian and Wang, Chenglong and Nie, Jie},
+    booktitle={Twelfth International Conference on Graphics and Image Processing (ICGIP 2020)},
+    volume={11720},
+    pages={546--552},
+    year={2021},
+    organization={SPIE}
+  }
+order: 2

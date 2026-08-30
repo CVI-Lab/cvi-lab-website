@@ -1,0 +1,24 @@
+title: Small Object Detection in Complex Large-Scale Spatial Images by Concatenating SRGAN and Multi-Task WGAN
+authors:
+  - Yu Fu
+  - Chengyu Zheng
+  - Liyuan Yuan
+  - Hao Chen
+  - Jie Nie
+venue: 7th International Conference on Big Data Computing and Communications
+venueShort: BigCom
+year: 2021
+month: October
+pages: 196–203
+project: small-object-detection
+links: {}
+bibtex: |
+  @inproceedings{fu2021small,
+    title={Small object detection in complex large scale spatial image by concatenating srgan and multi-task wgan},
+    author={Fu, Yu and Zheng, Chengyu and Yuan, Liyuan and Chen, Hao and Nie, Jie},
+    booktitle={2021 7th International Conference on Big Data Computing and Communications (BigCom)},
+    pages={196--203},
+    year={2021},
+    organization={IEEE}
+  }
+order: 1

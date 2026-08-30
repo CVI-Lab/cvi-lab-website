@@ -401,12 +401,12 @@ if (!existingEditor) {
   }
 
   const field = (label, name, value, options = {}) => {
-    const { help, type = 'text', required = false, min, step } = options;
+    const { help, type = 'text', required = false, min, step, readonly = false } = options;
     return `
       <label class="cvi-editor-field">
         <span>${escapeHtml(label)}${required ? ' <b>*</b>' : ''}</span>
         <input name="${escapeHtml(name)}" type="${escapeHtml(type)}" value="${escapeHtml(value ?? '')}"
-          ${required ? 'required' : ''} ${min != null ? `min="${min}"` : ''} ${step != null ? `step="${step}"` : ''}>
+          ${required ? 'required' : ''} ${readonly ? 'readonly' : ''} ${min != null ? `min="${min}"` : ''} ${step != null ? `step="${step}"` : ''}>
         ${help ? `<small>${escapeHtml(help)}</small>` : ''}
       </label>`;
   };
@@ -602,14 +602,14 @@ if (!existingEditor) {
           ${field('Month', 'month', data.month)}
           ${field('Pages/article', 'pages', data.pages)}
         </div>
-        ${field('Related project ID', 'project', data.project, { help: 'Optional internal project ID (the filename without .md).' })}
+        ${field('Related project ID', 'project', data.project, { readonly: true, help: 'Managed automatically from the linked publication field in the project editor.' })}
         <fieldset>
           <legend>External links</legend>
           ${field('Project website', 'projectUrl', data.links?.project)}
           ${field('Paper URL', 'paperUrl', data.links?.paper)}
           ${field('Code URL', 'codeUrl', data.links?.code)}
         </fieldset>
-        ${textarea('BibTeX', 'bibtex', data.bibtex, { required: true, rows: 14 })}
+        ${textarea('BibTeX', 'bibtex', data.bibtex, { rows: 14, help: 'Optional while a newly accepted paper is waiting for its finalized citation.' })}
         <div class="cvi-editor-actions">
           <button class="cvi-editor-save" type="submit">Save publication</button>
           <button class="cvi-editor-delete" type="button" data-delete-item>Delete publication</button>
@@ -628,6 +628,7 @@ if (!existingEditor) {
           ${select('Category', 'category', data.category, [
             ['pi', 'Principal investigator'],
             ['postdoc', 'Postdoctoral'],
+            ['visiting', 'Visiting scholar'],
             ['phd', 'PhD'],
             ['masters', 'Master’s'],
             ['undergraduate', 'Undergraduate'],

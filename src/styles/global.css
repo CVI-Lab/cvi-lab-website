@@ -888,6 +888,15 @@ a {
   transform: scale(1.025);
 }
 
+.project-overview-image img {
+  object-fit: contain;
+  background: #fff;
+}
+
+.project-card:hover .project-overview-image img {
+  transform: none;
+}
+
 .project-card .responsive-image {
   border-radius: 0;
   border-bottom: 1px solid var(--color-border);
@@ -1334,6 +1343,18 @@ a {
 }
 
 /* People */
+.people-section {
+  padding-block: clamp(3.5rem, 6vw, 5.5rem);
+}
+
+.people-section + .people-section {
+  padding-block: clamp(2.75rem, 4vw, 4rem);
+}
+
+.people-section .section-heading {
+  margin-bottom: clamp(1.5rem, 2.5vw, 2.25rem);
+}
+
 .pi-card {
   display: grid;
   align-items: center;
@@ -1430,6 +1451,23 @@ a {
   font-weight: 600;
 }
 
+.alumni-groups {
+  display: grid;
+  gap: clamp(2.5rem, 4vw, 3.75rem);
+}
+
+.alumni-group {
+  width: 100%;
+  max-width: 1060px;
+  margin-inline: auto;
+}
+
+.alumni-group__title {
+  margin-bottom: clamp(1.15rem, 2vw, 1.6rem);
+  color: var(--color-primary-dark);
+  font-size: clamp(1.25rem, 1.8vw, 1.55rem);
+}
+
 /* Projects listing */
 .projects-page,
 .publications-page {
@@ -1442,6 +1480,11 @@ a {
 
 .project-grid--page .project-card__body {
   min-height: 270px;
+}
+
+.project-grid--page .project-card h3 {
+  font-size: clamp(1rem, 1.15vw, 1.15rem);
+  line-height: 1.24;
 }
 
 /* Project detail */
@@ -1484,7 +1527,7 @@ a {
 
 .project-detail__header h1 {
   margin-bottom: 0.8rem;
-  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-size: clamp(2rem, 3.6vw, 3rem);
 }
 
 .project-detail__subtitle {
@@ -1860,50 +1903,46 @@ a {
 }
 
 .publication-entry__actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   align-items: center;
-  gap: 0.55rem 1rem;
+  column-gap: 1rem;
   margin-top: 0.85rem;
+  grid-template-columns: repeat(4, max-content) minmax(0, 1fr);
 }
 
 .publication-entry__actions > a,
-.publication-entry .bibtex summary {
+.publication-entry .bibtex__toggle {
+  grid-row: 1;
   color: var(--color-primary-dark);
   font-family: var(--font-heading);
   font-size: 0.73rem;
   font-weight: 600;
 }
 
-.publication-entry .bibtex {
+.publication-entry .bibtex--inline {
+  display: contents;
   margin: 0;
-  overflow: visible;
   border: 0;
   background: transparent;
 }
 
-.publication-entry .bibtex summary {
+.publication-entry .bibtex__toggle {
   padding: 0;
-  list-style: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.22em;
 }
 
-.publication-entry .bibtex summary::-webkit-details-marker {
-  display: none;
-}
-
-.publication-entry .bibtex[open] {
-  flex: 1 0 100%;
-  order: 2;
-  margin-top: 0.35rem;
-}
-
-.publication-entry .bibtex__panel {
+.publication-entry .bibtex--inline .bibtex__panel {
+  min-width: 0;
   margin-top: 0.65rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
+  grid-column: 1 / -1;
+  grid-row: 2;
 }
 
 /* Contact */
@@ -2080,7 +2119,7 @@ a {
   display: grid;
   gap: 2.5rem;
   padding-bottom: clamp(4rem, 7vw, 6rem);
-  grid-template-columns: 1.4fr 1.25fr 0.65fr 0.9fr;
+  grid-template-columns: 1.3fr 1.15fr 0.6fr minmax(250px, 1.05fr);
 }
 
 .brand--footer {
@@ -2129,15 +2168,19 @@ a {
   color: var(--color-primary-dark);
 }
 
+.site-footer__column:last-child > a {
+  display: block;
+  white-space: nowrap;
+}
+
+.site-footer__column:last-child > a + a {
+  margin-top: 0.3rem;
+}
+
 .site-footer__email {
   display: block;
   margin-bottom: 0.45rem;
   color: var(--color-primary-dark) !important;
-}
-
-.site-footer__placeholder {
-  margin-top: 0.8rem;
-  font-style: italic;
 }
 
 .site-footer__bottom {
@@ -2530,7 +2573,7 @@ a {
   }
 
   .project-detail__header h1 {
-    font-size: clamp(2.3rem, 10vw, 3.2rem);
+    font-size: clamp(1.85rem, 7.5vw, 2.45rem);
   }
 
   .project-detail__links {

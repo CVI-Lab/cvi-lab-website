@@ -1,0 +1,22 @@
+title: Estimating Virtual Camera FOV to Reduce Perspective Shape Distortion in 2D-to-3D Face Reconstruction
+authors:
+  - Peizhi Yan
+  - Rabab Ward
+  - Qiang Tang
+  - Shan Du
+venue: IEEE International Conference on Image Processing
+venueShort: ICIP
+year: 2025
+pages: 199–204
+project: virtual-camera-fov
+links: {}
+bibtex: |
+  @inproceedings{yan2025estimating,
+    title={Estimating Virtual Camera FOV to Reduce Perspective Shape Distortion in 2D-to-3D Face Reconstruction},
+    author={Yan, Peizhi and Ward, Rabab and Tang, Qiang and Du, Shan},
+    booktitle={2025 IEEE International Conference on Image Processing (ICIP)},
+    pages={199--204},
+    year={2025},
+    organization={IEEE}
+  }
+order: 7

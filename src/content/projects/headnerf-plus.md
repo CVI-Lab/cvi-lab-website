@@ -1,18 +1,18 @@
 ---
-title: HeadNeRF+
-subtitle: Learning Disentangled Features for NeRF-Based Face Reconstruction
+title: Learning Disentangled Features for NeRF-Based Face Reconstruction
+subtitle: HeadNeRF+ reconstruction with disentangled facial representations
 summary: An encoder-based reconstruction framework that predicts disentangled HeadNeRF features directly and adds semantic facial-part supervision.
 publication: yan-2023-headnerf-plus
 image:
-  src: https://yan.auroratns.com/docs/headnerf+/resources/teaser.jpg
-  alt: HeadNeRF+ face reconstruction comparisons and disentangled controls
-  caption: HeadNeRF+ reconstruction examples from the official project page.
+  src: /images/projects/headnerf-plus.webp
+  alt: HeadNeRF+ architecture for predicting disentangled identity, expression, and appearance features
+  caption: HeadNeRF+ method overview supplied by the project author.
 tags:
   - NeRF
   - 3D Face Reconstruction
   - Disentanglement
 featured: false
-order: 2
+order: 8
 ---
 
 ## I. Overview

@@ -1,0 +1,20 @@
+title: "PhysGasFluid: Physics-Guided Gaseous Fluid Flow Reconstruction"
+authors:
+  - Keyi Wu
+  - Shan Du
+venue: IEEE International Conference on Image Processing
+venueShort: ICIP
+year: 2026
+pages: 1–6
+project: physgasfluid
+links: {}
+order: 6
+bibtex: |
+  @inproceedings{wu2026physgasfluid,
+    title={PhysGasFluid: Physics-Guided Gaseous Fluid Flow Reconstruction},
+    author={Wu, Keyi and Du, Shan},
+    booktitle={2026 IEEE International Conference on Image Processing (ICIP)},
+    pages={1--6},
+    year={2026},
+    organization={IEEE}
+  }

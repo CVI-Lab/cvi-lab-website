@@ -1,0 +1,26 @@
+title: Cross-Scale Graph Interaction Network for Semantic Segmentation of Remote Sensing Images
+authors:
+  - Jie Nie
+  - Lei Huang
+  - Chengyu Zheng
+  - Xiaowei Lv
+  - Rui Wang
+venue: ACM Transactions on Multimedia Computing, Communications, and Applications
+venueShort: TOMM
+year: 2023
+month: May
+pages: 1–18
+project: cross-scale-graph-interaction
+links: {}
+bibtex: |
+  @article{nie2023cross,
+    title={Cross-scale graph interaction network for semantic segmentation of remote sensing images},
+    author={Nie, Jie and Huang, Lei and Zheng, Chengyu and Lv, Xiaowei and Wang, Rui},
+    journal={ACM Transactions on Multimedia Computing, Communications and Applications},
+    volume={19},
+    number={6},
+    pages={1--18},
+    year={2023},
+    publisher={ACM New York, NY}
+  }
+order: 2

@@ -1,18 +1,18 @@
 ---
-title: JVLGS
-subtitle: Joint Vision–Language Gas Leak Segmentation
+title: "JVLGS: Joint Vision–Language Gas Leak Segmentation"
+subtitle: Language-guided temporal-spatial reasoning for gas leak segmentation
 summary: A vision–language system that combines video evidence and text prompts to segment gas leaks under supervised and limited-data settings.
 publication: zhao-2026-jvlgs
 image:
-  src: https://raw.githubusercontent.com/GeekEagle/JVLGS/main/assets/fig1_framework.png
-  alt: JVLGS framework for joint vision-language gas leak segmentation
-  caption: Framework overview from the official JVLGS repository.
+  src: /images/projects/jvlgs.webp
+  alt: JVLGS architecture combining vision and language features with temporal-spatial reasoning and an FPN decoder
+  caption: JVLGS framework overview supplied by the project author.
 tags:
   - Video Segmentation
   - Vision–Language
   - Industrial Inspection
 featured: false
-order: 10
+order: 21
 ---
 
 ## I. Overview

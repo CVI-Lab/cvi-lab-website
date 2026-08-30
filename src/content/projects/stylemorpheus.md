@@ -1,18 +1,18 @@
 ---
-title: StyleMorpheus
-subtitle: A StyleGAN-Based 3D-Aware Morphable Face Model with a Disentangled Style Space
+title: "StyleMorpheus: Learning a StyleGAN-Based 3D-Aware Morphable Face Model with a Disentangled Style Space"
+subtitle: A controllable 3D-aware face model learned from in-the-wild imagery
 summary: A style-based neural 3D morphable model trained on in-the-wild images for controllable, photorealistic face reconstruction and editing.
 publication: yan-2025-stylemorpheus
 image:
-  src: https://yan.auroratns.com/docs/morpheus/resources/teaser.png
-  alt: StyleMorpheus face reconstruction, view synthesis, and editing examples
-  caption: StyleMorpheus overview from the official project page.
+  src: /images/projects/stylemorpheus.webp
+  alt: StyleMorpheus examples showing source faces, target views, and disentangled 3D-aware reconstructions
+  caption: StyleMorpheus overview supplied by the project author.
 tags:
   - 3D Faces
   - Generative Models
   - Neural Rendering
 featured: false
-order: 7
+order: 13
 ---
 
 ## I. Overview

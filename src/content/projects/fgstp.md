@@ -1,18 +1,18 @@
 ---
-title: FGSTP
-subtitle: Fine-Grained Spatial-Temporal Perception for Gas Leak Segmentation
+title: Fine-Grained Spatial-Temporal Perception for Gas Leak Segmentation
+subtitle: Motion correlation and fine-grained spatial refinement for gas plumes
 summary: A video segmentation framework that combines motion correlations with fine-grained spatial refinement to recover faint gas plumes and their boundaries.
 publication: zhao-2025-fgstp
 image:
-  src: https://github.com/user-attachments/assets/ddc013d2-86d0-4975-a2db-a393e3bcf790
-  alt: FGSTP gas leak segmentation architecture and example masks
-  caption: Framework overview from the official FGSTP repository.
+  src: /images/projects/fgstp.webp
+  alt: FGSTP architecture combining consecutive-frame correlations with fine-grained spatial perception and guided refinement
+  caption: FGSTP framework overview supplied by the project author.
 tags:
   - Video Segmentation
   - Motion Analysis
   - Industrial Inspection
 featured: false
-order: 5
+order: 11
 ---
 
 ## I. Overview

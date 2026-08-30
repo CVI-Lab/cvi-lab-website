@@ -10,14 +10,16 @@ year: 2026
 project: aesthetic-alignment
 links:
   project: https://weathon.github.io/icml2026_position/
-  paper: https://openreview.net/forum?id=1gQ4zc1Q8I
-order: 6
+  paper: https://arxiv.org/abs/2512.11883
+  code: https://github.com/weathon/icml2026_position
+order: 5
 bibtex: |
-  @InProceedings{Guo_2026_AestheticAlignment,
-    author    = {Guo, Wenqi Marshall and Qian, Qingyun and Hasan, Khalad and Du, Shan},
-    title     = {Position: Universal Aesthetic Alignment Narrows Artistic Expression},
-    booktitle = {Proceedings of the 43rd International Conference on Machine Learning},
-    year      = {2026},
-    note      = {Position Track Spotlight},
-    url       = {https://openreview.net/forum?id=1gQ4zc1Q8I}
+  @misc{guo2026positionuniversalaestheticalignment,
+    title={Position: Universal Aesthetic Alignment Narrows Artistic Expression},
+    author={Wenqi Marshall Guo and Qingyun Qian and Khalad Hasan and Shan Du},
+    year={2026},
+    eprint={2512.11883},
+    archivePrefix={arXiv},
+    primaryClass={cs.CY},
+    url={https://arxiv.org/abs/2512.11883}
   }

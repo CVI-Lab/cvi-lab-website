@@ -1,0 +1,25 @@
+title: "Unequal by Design: Instance-Aware and Cluster-Differentiated Universum Construction for Multi-View Contrastive Clustering"
+authors:
+  - Ghaith Chrit
+  - Shan Du
+venue: IEEE International Conference on Image Processing
+venueShort: ICIP
+year: 2026
+month: September
+pages: 1–6
+project: aura
+links:
+  paper: https://ieeexplore.ieee.org/document/11630034
+order: 7
+bibtex: |
+  @inproceedings{chrit2026unequal,
+    title={Unequal by Design: Instance-Aware and Cluster-Differentiated Universum Construction for Multi-View Contrastive Clustering},
+    author={Chrit, Ghaith and Du, Shan},
+    booktitle={2026 IEEE International Conference on Image Processing (ICIP)},
+    pages={1--6},
+    year={2026},
+    month={September},
+    publisher={IEEE},
+    doi={10.1109/ICIP61757.2026.11630034},
+    url={https://doi.org/10.1109/ICIP61757.2026.11630034}
+  }

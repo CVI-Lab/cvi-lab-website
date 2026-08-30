@@ -1,19 +1,19 @@
 ---
-title: TriSim
-subtitle: Tri-Dimensional Similarity Modeling with Extreme Value Theory for False-Negative Mitigation in Remote Sensing Image-Text Retrieval
+title: "TriSim: Tri-Dimensional Similarity Modeling with Extreme Value Theory for False-Negative Mitigation in Remote Sensing Image-Text Retrieval"
+subtitle: Three-way similarity modeling for reliable remote-sensing retrieval
 summary: A remote-sensing retrieval framework that models image–image, image–text, and text–text similarities to identify and reduce false-negative training signals.
 publication: zheng-2026-trisim
 image:
-  src: /images/projects/trisim-placeholder.jpg
-  alt: Illustrative placeholder showing remote-sensing imagery, a three-dimensional similarity space, and text features
-  caption: Illustrative placeholder generated for this site; it is not a figure or result from the paper.
+  src: /images/projects/trisim.webp
+  alt: TriSim framework combining image-image, image-text, and text-text similarity with extreme value modeling
+  caption: TriSim method overview supplied by the project author.
 tags:
   - Remote Sensing
   - Vision–Language
   - Cross-Modal Retrieval
 featured: true
 featuredOrder: 3
-order: 14
+order: 23
 ---
 
 ## I. Core Problem and Overall Significance

@@ -1,18 +1,18 @@
 ---
-title: Neural 3D Face Stylization
-subtitle: Single-Template Shape Stylization through Weakly Supervised Learning
+title: Neural 3D Face Shape Stylization Based on Single Style Template via Weakly Supervised Learning
+subtitle: Fast 3D face stylization from one artist-created template
 summary: A learning-based deformation-transfer method that stylizes new 3D faces from a single artist-created style template without paired training data.
 publication: yan-2025-neural-face-stylization
 image:
-  src: https://yan.auroratns.com/docs/style/stylization_results-usethis.png
-  alt: Examples of realistic 3D faces transformed into several stylized shapes
-  caption: Stylization examples from the official project page.
+  src: /images/projects/neural-3d-face-stylization.webp
+  alt: Neural network pipeline transferring a single stylized template to new 3D face shapes
+  caption: Neural 3D face stylization method overview supplied by the project author.
 tags:
   - 3D Faces
   - Shape Stylization
   - Weak Supervision
 featured: false
-order: 8
+order: 14
 ---
 
 ## I. Overview

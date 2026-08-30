@@ -1,18 +1,18 @@
 ---
-title: VSF
-subtitle: Value Sign Flip for Negative Guidance in Few-Step Generative Models
+title: "VSF: Simple, Efficient, and Effective Negative Guidance in Few-Step Image Generation Models By Value Sign Flip"
+subtitle: Training-free negative guidance through attention value sign flipping
 summary: A lightweight negative-prompt guidance method that suppresses unwanted concepts by flipping attention value vectors, without retraining the generation model.
 publication: guo-2026-vsf
 image:
-  src: https://github.com/user-attachments/assets/751e06db-bbd3-4c1b-b208-c384100efeea
-  alt: VSF examples comparing generated images before and after removing concepts named in negative prompts
-  caption: Negative-prompt guidance examples from the official VSF repository.
+  src: /images/projects/vsf.webp
+  alt: VSF image-generation examples showing source prompts and concepts removed through negative guidance
+  caption: VSF qualitative overview supplied by the project author.
 tags:
   - Diffusion Models
   - Negative Guidance
   - Image Generation
 featured: false
-order: 12
+order: 22
 ---
 
 ## I. Overview

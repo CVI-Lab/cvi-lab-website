@@ -1,0 +1,26 @@
+title: Whole Semantic Sparse Coding Network for Remote Sensing Image-Text Retrieval
+authors:
+  - Chengyu Zheng
+  - Qi Wen
+  - Xiu Li
+  - Chenxue Yang
+  - Jie Nie
+  - Yiyun Guo
+  - Yuntao Qian
+  - Zhiqiang Wei
+venue: IEEE Transactions on Geoscience and Remote Sensing
+venueShort: TGRS
+year: 2025
+month: August
+pages: 1–13
+project: whole-semantic-sparse-coding
+links: {}
+bibtex: |
+  @article{zheng2025whole,
+    title={Whole Semantic Sparse Coding Network for Remote Sensing Image-Text Retrieval},
+    author={Zheng, Chengyu and Wen, Qi and Li, Xiu and Yang, Chenxue and Nie, Jie and Guo, Yiyun and Qian, Yuntao and Wei, Zhiqiang},
+    journal={IEEE Transactions on Geoscience and Remote Sensing},
+    year={2025},
+    publisher={IEEE}
+  }
+order: 8

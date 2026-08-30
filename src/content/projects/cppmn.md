@@ -1,18 +1,18 @@
 ---
-title: CPPMN
-subtitle: Cross-Modal Progressive Perspective Matching for Remote Sensing Image–Text Retrieval
+title: Cross-Modal Progressive Perspective Matching Network for Remote Sensing Image-Text Retrieval
+subtitle: Progressive geographic-perspective modeling for cross-modal retrieval
 summary: A progressive matching network that models multiple geographic perspectives and aligns remote-sensing images with textual queries.
 publication: zheng-2025-cppmn
 image:
-  src: /images/projects/cppmn-placeholder.jpg
-  alt: Illustrative placeholder showing progressive graph alignment between remote-sensing imagery and text
-  caption: Illustrative placeholder generated for this site; it is not a figure or result from the paper.
+  src: /images/projects/cppmn.webp
+  alt: CPPMN architecture for full-perspective learning, graph transformation, and progressive image-text alignment
+  caption: CPPMN method overview supplied by the project author.
 tags:
   - Remote Sensing
   - Cross-Modal Retrieval
   - Transformers
 featured: false
-order: 4
+order: 19
 ---
 
 ## I. Overview
