@@ -1,11 +1,24 @@
 title: "H-MoC: Hierarchical Mixture-of-Experts for Semantic- and Dispersion-Consistency in Remote Sensing Image-Text Retrieval"
 authors:
-  - Chengyu Zheng et al.
+  - Zheng Chengyu
+  - Hanzhang Lu
+  - Jie Nie
+  - Shan Du
 venue: IEEE Transactions on Multimedia
 venueShort: TMM
 year: 2026
 project: h-moc
-links: {}
+links:
+  paper: https://ieeexplore.ieee.org/abstract/document/11673296
 order: 8
-bibtex: ""
-pages: Accepted
+bibtex: |-
+  @ARTICLE{11673296,
+    author={Zheng, Chengyu and Lu, Hanzhang and Nie, Jie and Du, Shan},
+    journal={IEEE Transactions on Multimedia}, 
+    title={H-MoC: Hierarchical Mixture-of-Experts for Semantic- and Dispersion-Consistency in Remote Sensing Image-Text Retrieval}, 
+    year={2026},
+    volume={},
+    number={},
+    pages={1-11},
+    doi={10.1109/TMM.2026.3729400}}
+pages: 1-11

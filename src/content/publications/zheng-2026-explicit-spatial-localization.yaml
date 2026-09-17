@@ -1,11 +1,27 @@
 title: Explicit Spatial Localization and Task-Adaptive Balancing for Remote Sensing Image-Text Retrieval
 authors:
-  - Chengyu Zheng et al.
+  - Chengyu Zheng
+  - Hanzhang Lu
+  - Qianyu Shang
+  - Yong Gao
+  - Jie Nie
+  - Shan Du
 venue: ISPRS Journal of Photogrammetry and Remote Sensing
 venueShort: ISPRS JPRS
 year: 2026
 project: explicit-spatial-localization
-links: {}
-bibtex: ""
+links:
+  paper: https://www.sciencedirect.com/science/article/pii/S0924271626004119
+bibtex: |-
+  @article{ZHENG2026109,
+  title = {Explicit spatial localization and task-adaptive balancing for remote sensing image-text retrieval},
+  journal = {ISPRS Journal of Photogrammetry and Remote Sensing},
+  volume = {241},
+  pages = {109-122},
+  year = {2026},
+  issn = {0924-2716},
+  doi = {https://doi.org/10.1016/j.isprsjprs.2026.08.022},
+  author = {Chengyu Zheng and Hanzhang Lu and Qianyu Shang and Yong Gao and Jie Nie and Shan Du},
+  }
 order: 9
-pages: Accepted
+pages: 109-122

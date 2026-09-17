@@ -7,9 +7,10 @@ venueShort: ICIP
 year: 2026
 pages: 1–6
 project: physgasfluid
-links: {}
+links:
+  paper: https://ieeexplore.ieee.org/document/11629890
 order: 6
-bibtex: |
+bibtex: |-
   @inproceedings{wu2026physgasfluid,
     title={PhysGasFluid: Physics-Guided Gaseous Fluid Flow Reconstruction},
     author={Wu, Keyi and Du, Shan},
